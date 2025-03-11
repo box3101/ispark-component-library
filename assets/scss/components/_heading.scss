@@ -1,0 +1,73 @@
+.custom-heading {
+  margin: 0;
+  line-height: 1.2;
+  font-family: var(--font-family-heading);
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+
+    &--trailing {
+      margin-left: 0.25rem;
+    }
+  }
+
+  // Size variants
+  &--xs {
+    font-size: 0.75rem;
+  }
+
+  &--sm {
+    font-size: 0.875rem;
+  }
+
+  &--md {
+    font-size: 1rem;
+  }
+
+  &--lg {
+    font-size: 1.125rem;
+  }
+
+  &--xl {
+    font-size: 1.25rem;
+  }
+
+  &--2xl {
+    font-size: 1.5rem;
+  }
+
+  &--3xl {
+    font-size: 1.875rem;
+  }
+
+  &--4xl {
+    font-size: 2.25rem;
+  }
+
+  // Color variants
+  &--brand {
+    color: var(--color-brand-700);
+  }
+
+  &--gray {
+    color: var(--color-gray-700);
+  }
+
+  &--dark-gray {
+    color: var(--color-dark-gray-700);
+  }
+
+  // Weight variants
+  &--bold {
+    font-weight: 700;
+  }
+}
