@@ -1,0 +1,256 @@
+
+@use "sass:map";
+$brand-colors: (
+  50: var(--color-brand-50),
+  100: var(--color-brand-100),
+  200: var(--color-brand-200),
+  300: var(--color-brand-300),
+  400: var(--color-brand-400),
+  500: var(--color-brand-500),
+  600: var(--color-brand-600),
+  700: var(--color-brand-700),
+  800: var(--color-brand-800),
+  900: var(--color-brand-900),
+  950: var(--color-brand-950),
+  text: var(--color-brand-text)
+);
+
+$gray-colors: (
+  50: var(--color-gray-50),
+  100: var(--color-gray-100),
+  200: var(--color-gray-200),
+  300: var(--color-gray-300),
+  400: var(--color-gray-400),
+  500: var(--color-gray-500),
+  600: var(--color-gray-600),
+  700: var(--color-gray-700),
+  800: var(--color-gray-800),
+  900: var(--color-gray-900),
+  950: var(--color-gray-950),
+  text: var(--color-gray-text)
+);
+
+$dark-gray-colors: (
+  50: var(--color-dark-gray-50),
+  100: var(--color-dark-gray-100),
+  200: var(--color-dark-gray-200),
+  300: var(--color-dark-gray-300),
+  400: var(--color-dark-gray-400),
+  500: var(--color-dark-gray-500),
+  600: var(--color-dark-gray-600),
+  700: var(--color-dark-gray-700),
+  800: var(--color-dark-gray-800),
+  900: var(--color-dark-gray-900),
+  950: var(--color-dark-gray-950),
+  text: var(--color-dark-gray-text)
+);
+
+// 믹스인 정의
+@mixin button-size($padding-y, $padding-x, $font-size, $height) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  height: $height;
+}
+
+@mixin button-variant($bg-color, $text-color, $hover-bg-color, $active-bg-color) {
+  background-color: $bg-color;
+  color: $text-color;
+
+  &:hover:not(:disabled) {
+    background-color: $hover-bg-color;
+  }
+
+  &:active:not(:disabled) {
+    background-color: $active-bg-color;
+  }
+}
+
+// 기본 스타일
+.custom-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  font-weight: 500;
+  padding: 5px 16px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Pretendard', sans-serif;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  // 사이즈
+  &--xs { @include button-size(10px , 10px, 14px, 24px); }
+  &--sm { @include button-size(0.625rem, 1.25rem, 15px, 28px); }
+  &--md { @include button-size(0.75rem, 1.5rem, 16px, 40px); }
+  &--lg { @include button-size(0.875rem, 1.75rem, 17px, 48px); }
+  &--xl { @include button-size(1rem, 2rem, 18px, 56px); }
+
+  // 색상 - Brand
+  &--brand {
+    &.custom-button--solid {
+      @include button-variant(map.get($brand-colors, 500), white, map.get($brand-colors, 600), map.get($brand-colors, 700));
+    }
+
+    &.custom-button--outline {
+      border: 2px solid map.get($brand-colors, 500);
+      color: map.get($brand-colors, 500);
+      background-color: transparent;
+
+      &:hover:not(:disabled) {
+        background-color: map.get($brand-colors, 50);
+      }
+    }
+
+    &.custom-button--soft {
+      background-color: map.get($brand-colors, 50);
+      color: map.get($brand-colors, 700);
+
+      &:hover:not(:disabled) {
+        background-color: map.get($brand-colors, 100);
+      }
+    }
+
+    &.custom-button--ghost {
+      background-color: transparent;
+      color: map.get($brand-colors, 500);
+
+      &:hover:not(:disabled) {
+        background-color: map.get($brand-colors, 50);
+      }
+    }
+
+    &.custom-button--link {
+      background-color: transparent;
+      color: map.get($brand-colors, 500);
+      text-decoration: underline;
+      padding: 0;
+      height: auto;
+
+      &:hover:not(:disabled) {
+        color: map.get($brand-colors, 700);
+      }
+    }
+  }
+
+  // 색상 - Gray
+  &--gray {
+    &.custom-button--solid {
+      @include button-variant(map.get($gray-colors, 500), map.get($gray-colors, text), map.get($gray-colors, 600), map.get($gray-colors, 700));
+    }
+
+    &.custom-button--outline {
+      border: 2px solid map.get($gray-colors, 500);
+      color: map.get($gray-colors, 500);
+      background-color: transparent;
+
+      &:hover:not(:disabled) {
+        background-color: map.get($gray-colors, 50);
+        color: map.get($gray-colors, 900);
+      }
+    }
+
+    &.custom-button--soft {
+      background-color: map.get($gray-colors, 100);
+      color: map.get($gray-colors, 700);
+
+      &:hover:not(:disabled) {
+        background-color: map.get($gray-colors, 200);
+      }
+    }
+
+    &.custom-button--ghost {
+      background-color: transparent;
+      color: map.get($gray-colors, 500);
+
+      &:hover:not(:disabled) {
+        background-color: map.get($gray-colors, 50);
+      }
+    }
+
+    &.custom-button--link {
+      background-color: transparent;
+      color: map.get($gray-colors, 500);
+      text-decoration: underline;
+      padding: 0;
+      height: auto;
+    }
+  }
+
+  // 색상 - Dark Gray
+  &--dark-gray {
+    &.custom-button--solid {
+      @include button-variant(map.get($dark-gray-colors, 500), map.get($dark-gray-colors, text), map.get($dark-gray-colors, 600), map.get($dark-gray-colors, 700));
+    }
+
+    &.custom-button--outline {
+      border: 2px solid map.get($dark-gray-colors, 500);
+      color: map.get($dark-gray-colors, 500);
+      background-color: transparent;
+    }
+
+    &.custom-button--soft {
+      background-color: map.get($dark-gray-colors, 100);
+      color: map.get($dark-gray-colors, 700);
+    }
+
+    &.custom-button--ghost {
+      background-color: transparent;
+      color: map.get($dark-gray-colors, text);
+    }
+
+    &.custom-button--link {
+      background-color: transparent;
+      color: map.get($dark-gray-colors, text);
+      text-decoration: underline;
+    }
+  }
+
+  // 로딩 상태
+  &--loading {
+    color: transparent !important;
+    pointer-events: none;
+    position: relative;
+
+    .custom-button__loader {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 1em;
+      height: 1em;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      border-right-color: transparent;
+      animation: button-spin 0.75s linear infinite;
+    }
+  }
+
+  // 블록 버튼
+  &--block {
+    width: 100%;
+  }
+
+  // 아이콘
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@keyframes button-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

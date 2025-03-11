@@ -1,18 +1,614 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-
+@charset "UTF-8";
 /* 브랜드 관련 기본 스타일 */
 :root {
   --brand-transition: all 0.3s ease;
+  /* 브랜드 색상 변수 정의 */
+  --color-brand-50: #f0f9ff;
+  --color-brand-100: #e0f2fe;
+  --color-brand-200: #bae6fd;
+  --color-brand-300: #7dd3fc;
+  --color-brand-400: #38bdf8;
+  --color-brand-500: #0095F2;
+  --color-brand-600: #0284c7;
+  --color-brand-700: #0369a1;
+  --color-brand-800: #075985;
+  --color-brand-900: #0c4a6e;
+  --color-brand-950: #082f49;
+  --color-brand-text: #fff;
+  /* 그레이 색상 변수 정의 */
+  --color-gray-50: #ffffff;
+  --color-gray-100: #f9f9f9;
+  --color-gray-200: #f3f3f3;
+  --color-gray-300: #e5e5e5;
+  --color-gray-400: #d4d4d4;
+  --color-gray-500: #cccccc; /* 기본 배경색상 */
+  --color-gray-600: #a3a3a3;
+  --color-gray-700: #737373;
+  --color-gray-800: #525252;
+  --color-gray-900: #404040;
+  --color-gray-950: #262626;
+  --color-gray-text: #ffffff; /* 텍스트 색상 */
+  /* 다크 그레이 색상 변수 정의 */
+  --color-dark-gray-50: #f7f7f7;
+  --color-dark-gray-100: #e6e6e6;
+  --color-dark-gray-200: #d1d1d1;
+  --color-dark-gray-300: #b0b0b0;
+  --color-dark-gray-400: #909090;
+  --color-dark-gray-500: #555555; /* 기본 색상 */
+  --color-dark-gray-600: #4d4d4d;
+  --color-dark-gray-700: #404040;
+  --color-dark-gray-800: #333333;
+  --color-dark-gray-900: #262626;
+  --color-dark-gray-950: #1a1a1a;
+  --color-dark-gray-text: #ffffff;
 }
 
-/* 브랜드 스타일에 맞는 글로벌 스타일 */
-body {
-  font-family: 'Noto Sans KR', sans-serif;
-  letter-spacing: -0.02em;
+.custom-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  white-space: nowrap;
+}
+.custom-badge--sm {
+  font-size: 0.75rem;
+  padding: 0.125rem 0.5rem;
+}
+.custom-badge--md {
+  font-size: 0.875rem;
+  padding: 0.25rem 0.75rem;
+}
+.custom-badge--lg {
+  font-size: 1rem;
+  padding: 0.375rem 1rem;
+}
+.custom-badge--blue {
+  background-color: #0ea5e9;
+  color: white;
+}
+.custom-badge--blue.custom-badge--outline {
+  background-color: transparent;
+  color: #0ea5e9;
+  border: 1px solid #0ea5e9;
+}
+.custom-badge--green {
+  background-color: #22c55e;
+  color: white;
+}
+.custom-badge--green.custom-badge--outline {
+  background-color: transparent;
+  color: #22c55e;
+  border: 1px solid #22c55e;
+}
+.custom-badge--red {
+  background-color: #ef4444;
+  color: white;
+}
+.custom-badge--red.custom-badge--outline {
+  background-color: transparent;
+  color: #ef4444;
+  border: 1px solid #ef4444;
+}
+.custom-badge--purple {
+  background-color: #a855f7;
+  color: white;
+}
+.custom-badge--purple.custom-badge--outline {
+  background-color: transparent;
+  color: #a855f7;
+  border: 1px solid #a855f7;
+}
+.custom-badge--orange {
+  background-color: #f97316;
+  color: white;
+}
+.custom-badge--orange.custom-badge--outline {
+  background-color: transparent;
+  color: #f97316;
+  border: 1px solid #f97316;
+}
+.custom-badge--gray {
+  background-color: #6b7280;
+  color: white;
+}
+.custom-badge--gray.custom-badge--outline {
+  background-color: transparent;
+  color: #6b7280;
+  border: 1px solid #6b7280;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Pretendard', sans-serif;
-  font-weight: 700;
+/* 아이콘 */
+.icon {
+  display: inline-block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
+
+.icon--sm {
+  width: 16px;
+  height: 16px;
+}
+
+.icon--md {
+  width: 24px;
+  height: 24px;
+}
+
+.icon--lg {
+  width: 32px;
+  height: 32px;
+}
+
+.icon--settings {
+  background-image: url("../img/icon/settings-icon.svg");
+}
+
+.icon--settings.icon--white {
+  filter: brightness(0) invert(1);
+}
+
+.custom-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  font-weight: 500;
+  padding: 5px 16px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "Pretendard", sans-serif;
+}
+.custom-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.custom-button--xs {
+  padding: 10px 10px;
+  font-size: 14px;
+  height: 24px;
+}
+.custom-button--sm {
+  padding: 0.625rem 1.25rem;
+  font-size: 15px;
+  height: 28px;
+}
+.custom-button--md {
+  padding: 0.75rem 1.5rem;
+  font-size: 16px;
+  height: 40px;
+}
+.custom-button--lg {
+  padding: 0.875rem 1.75rem;
+  font-size: 17px;
+  height: 48px;
+}
+.custom-button--xl {
+  padding: 1rem 2rem;
+  font-size: 18px;
+  height: 56px;
+}
+.custom-button--brand.custom-button--solid {
+  background-color: var(--color-brand-500);
+  color: white;
+}
+.custom-button--brand.custom-button--solid:hover:not(:disabled) {
+  background-color: var(--color-brand-600);
+}
+.custom-button--brand.custom-button--solid:active:not(:disabled) {
+  background-color: var(--color-brand-700);
+}
+.custom-button--brand.custom-button--outline {
+  border: 2px solid var(--color-brand-500);
+  color: var(--color-brand-500);
+  background-color: transparent;
+}
+.custom-button--brand.custom-button--outline:hover:not(:disabled) {
+  background-color: var(--color-brand-50);
+}
+.custom-button--brand.custom-button--soft {
+  background-color: var(--color-brand-50);
+  color: var(--color-brand-700);
+}
+.custom-button--brand.custom-button--soft:hover:not(:disabled) {
+  background-color: var(--color-brand-100);
+}
+.custom-button--brand.custom-button--ghost {
+  background-color: transparent;
+  color: var(--color-brand-500);
+}
+.custom-button--brand.custom-button--ghost:hover:not(:disabled) {
+  background-color: var(--color-brand-50);
+}
+.custom-button--brand.custom-button--link {
+  background-color: transparent;
+  color: var(--color-brand-500);
+  text-decoration: underline;
+  padding: 0;
+  height: auto;
+}
+.custom-button--brand.custom-button--link:hover:not(:disabled) {
+  color: var(--color-brand-700);
+}
+.custom-button--gray.custom-button--solid {
+  background-color: var(--color-gray-500);
+  color: var(--color-gray-text);
+}
+.custom-button--gray.custom-button--solid:hover:not(:disabled) {
+  background-color: var(--color-gray-600);
+}
+.custom-button--gray.custom-button--solid:active:not(:disabled) {
+  background-color: var(--color-gray-700);
+}
+.custom-button--gray.custom-button--outline {
+  border: 2px solid var(--color-gray-500);
+  color: var(--color-gray-500);
+  background-color: transparent;
+}
+.custom-button--gray.custom-button--outline:hover:not(:disabled) {
+  background-color: var(--color-gray-50);
+  color: var(--color-gray-900);
+}
+.custom-button--gray.custom-button--soft {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-700);
+}
+.custom-button--gray.custom-button--soft:hover:not(:disabled) {
+  background-color: var(--color-gray-200);
+}
+.custom-button--gray.custom-button--ghost {
+  background-color: transparent;
+  color: var(--color-gray-500);
+}
+.custom-button--gray.custom-button--ghost:hover:not(:disabled) {
+  background-color: var(--color-gray-50);
+}
+.custom-button--gray.custom-button--link {
+  background-color: transparent;
+  color: var(--color-gray-500);
+  text-decoration: underline;
+  padding: 0;
+  height: auto;
+}
+.custom-button--dark-gray.custom-button--solid {
+  background-color: var(--color-dark-gray-500);
+  color: var(--color-dark-gray-text);
+}
+.custom-button--dark-gray.custom-button--solid:hover:not(:disabled) {
+  background-color: var(--color-dark-gray-600);
+}
+.custom-button--dark-gray.custom-button--solid:active:not(:disabled) {
+  background-color: var(--color-dark-gray-700);
+}
+.custom-button--dark-gray.custom-button--outline {
+  border: 2px solid var(--color-dark-gray-500);
+  color: var(--color-dark-gray-500);
+  background-color: transparent;
+}
+.custom-button--dark-gray.custom-button--soft {
+  background-color: var(--color-dark-gray-100);
+  color: var(--color-dark-gray-700);
+}
+.custom-button--dark-gray.custom-button--ghost {
+  background-color: transparent;
+  color: var(--color-dark-gray-text);
+}
+.custom-button--dark-gray.custom-button--link {
+  background-color: transparent;
+  color: var(--color-dark-gray-text);
+  text-decoration: underline;
+}
+.custom-button--loading {
+  color: transparent !important;
+  pointer-events: none;
+  position: relative;
+}
+.custom-button--loading .custom-button__loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  border-right-color: transparent;
+  animation: button-spin 0.75s linear infinite;
+}
+.custom-button--block {
+  width: 100%;
+}
+.custom-button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes button-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.custom-checkbox-wrapper {
+  margin-bottom: 0.5rem;
+}
+
+.custom-checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+.custom-checkbox.is-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.custom-checkbox__input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+.custom-checkbox__input:checked ~ .custom-checkbox__checkmark::after {
+  display: block;
+}
+.custom-checkbox__checkmark {
+  height: 18px;
+  width: 18px;
+  border-radius: 3px;
+  border: 2px solid var(--color-gray-400);
+  position: relative;
+}
+.custom-checkbox__checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.custom-checkbox__checkmark--brand:hover {
+  border-color: var(--color-brand-600);
+}
+.custom-checkbox__input:checked ~ .custom-checkbox__checkmark--brand {
+  background-color: var(--color-brand-500);
+  border-color: var(--color-brand-500);
+}
+.custom-checkbox__checkmark--gray:hover {
+  border-color: var(--color-gray-600);
+}
+.custom-checkbox__input:checked ~ .custom-checkbox__checkmark--gray {
+  background-color: var(--color-gray-500);
+  border-color: var(--color-gray-500);
+}
+.custom-checkbox__checkmark--dark-gray:hover {
+  border-color: var(--color-dark-gray-600);
+}
+.custom-checkbox__input:checked ~ .custom-checkbox__checkmark--dark-gray {
+  background-color: var(--color-dark-gray-500);
+  border-color: var(--color-dark-gray-500);
+}
+.custom-checkbox__label {
+  margin-left: 8px;
+  font-size: 14px;
+}
+.custom-checkbox--xs .custom-checkbox__checkmark {
+  height: 14px;
+  width: 14px;
+}
+.custom-checkbox--xs .custom-checkbox__checkmark::after {
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+}
+.custom-checkbox--xs .custom-checkbox__label {
+  font-size: 12px;
+}
+.custom-checkbox--sm .custom-checkbox__checkmark {
+  height: 16px;
+  width: 16px;
+}
+.custom-checkbox--sm .custom-checkbox__checkmark::after {
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 9px;
+}
+.custom-checkbox--sm .custom-checkbox__label {
+  font-size: 13px;
+}
+.custom-checkbox--lg .custom-checkbox__checkmark {
+  height: 20px;
+  width: 20px;
+}
+.custom-checkbox--lg .custom-checkbox__checkmark::after {
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 11px;
+}
+.custom-checkbox--lg .custom-checkbox__label {
+  font-size: 15px;
+}
+.custom-checkbox--xl .custom-checkbox__checkmark {
+  height: 22px;
+  width: 22px;
+}
+.custom-checkbox--xl .custom-checkbox__checkmark::after {
+  left: 7px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+}
+.custom-checkbox--xl .custom-checkbox__label {
+  font-size: 16px;
+}
+
+.custom-checkbox__help {
+  display: block;
+  font-size: 12px;
+  color: var(--color-gray-600);
+  margin-top: 4px;
+  margin-left: 26px;
+}
+
+.custom-checkbox__error {
+  display: block;
+  font-size: 12px;
+  color: #dc2626;
+  margin-top: 4px;
+  margin-left: 26px;
+}
+
+.custom-radio-wrapper {
+  margin-bottom: 0.5rem;
+}
+
+.custom-radio {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+.custom-radio.is-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.custom-radio__input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+.custom-radio__input:checked ~ .custom-radio__mark::after {
+  display: block;
+}
+.custom-radio__mark {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--color-gray-400);
+  position: relative;
+}
+.custom-radio__mark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+.custom-radio__mark--brand:hover {
+  border-color: var(--color-brand-600);
+}
+.custom-radio__input:checked ~ .custom-radio__mark--brand {
+  background-color: var(--color-brand-500);
+  border-color: var(--color-brand-500);
+}
+.custom-radio__mark--gray:hover {
+  border-color: var(--color-gray-600);
+}
+.custom-radio__input:checked ~ .custom-radio__mark--gray {
+  background-color: var(--color-gray-500);
+  border-color: var(--color-gray-500);
+}
+.custom-radio__mark--dark-gray:hover {
+  border-color: var(--color-dark-gray-600);
+}
+.custom-radio__input:checked ~ .custom-radio__mark--dark-gray {
+  background-color: var(--color-dark-gray-500);
+  border-color: var(--color-dark-gray-500);
+}
+.custom-radio__label {
+  margin-left: 8px;
+  font-size: 14px;
+}
+.custom-radio--xs .custom-radio__mark {
+  height: 14px;
+  width: 14px;
+}
+.custom-radio--xs .custom-radio__mark::after {
+  top: 2px;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+}
+.custom-radio--xs .custom-radio__label {
+  font-size: 12px;
+}
+.custom-radio--sm .custom-radio__mark {
+  height: 16px;
+  width: 16px;
+}
+.custom-radio--sm .custom-radio__mark::after {
+  top: 3px;
+  left: 3px;
+  width: 6px;
+  height: 6px;
+}
+.custom-radio--sm .custom-radio__label {
+  font-size: 13px;
+}
+.custom-radio--lg .custom-radio__mark {
+  height: 20px;
+  width: 20px;
+}
+.custom-radio--lg .custom-radio__mark::after {
+  top: 4px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+}
+.custom-radio--lg .custom-radio__label {
+  font-size: 15px;
+}
+.custom-radio--xl .custom-radio__mark {
+  height: 22px;
+  width: 22px;
+}
+.custom-radio--xl .custom-radio__mark::after {
+  top: 4px;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+}
+.custom-radio--xl .custom-radio__label {
+  font-size: 16px;
+}
+
+.custom-radio__help {
+  display: block;
+  font-size: 12px;
+  color: var(--color-gray-600);
+  margin-top: 4px;
+  margin-left: 26px;
+}
+
+.custom-radio__error {
+  display: block;
+  font-size: 12px;
+  color: #dc2626;
+  margin-top: 4px;
+  margin-left: 26px;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,70 @@
+// Reset
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Body defaults
+body {
+  font-family: 'Pretendard', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+}
+
+// Remove list styles
+ul, ol {
+  list-style: none;
+}
+
+// Remove default button styles
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+// Remove text decoration from links
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Make images responsive
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Form elements
+input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+// Tables
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// Remove outline on focused elements
+:focus {
+  outline: 0;
+}
+
+// Hide scrollbars by default
+::-webkit-scrollbar {
+  display: none;
+}
+
+// Enable smooth scrolling
+html {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,46 @@
+
+/* 브랜드 관련 기본 스타일 */
+:root {
+  --brand-transition: all 0.3s ease;
+  /* 브랜드 색상 변수 정의 */
+  --color-brand-50: #f0f9ff;
+  --color-brand-100: #e0f2fe;
+  --color-brand-200: #bae6fd;
+  --color-brand-300: #7dd3fc;
+  --color-brand-400: #38bdf8;
+  --color-brand-500: #0095F2;
+  --color-brand-600: #0284c7;
+  --color-brand-700: #0369a1;
+  --color-brand-800: #075985;
+  --color-brand-900: #0c4a6e;
+  --color-brand-950: #082f49;
+  --color-brand-text: #fff;
+
+  /* 그레이 색상 변수 정의 */
+  --color-gray-50: #ffffff;
+  --color-gray-100: #f9f9f9;
+  --color-gray-200: #f3f3f3;
+  --color-gray-300: #e5e5e5;
+  --color-gray-400: #d4d4d4;
+  --color-gray-500: #cccccc; /* 기본 배경색상 */
+  --color-gray-600: #a3a3a3;
+  --color-gray-700: #737373;
+  --color-gray-800: #525252;
+  --color-gray-900: #404040;
+  --color-gray-950: #262626;
+  --color-gray-text: #ffffff; /* 텍스트 색상 */
+
+  /* 다크 그레이 색상 변수 정의 */
+  --color-dark-gray-50: #f7f7f7;
+  --color-dark-gray-100: #e6e6e6;
+  --color-dark-gray-200: #d1d1d1;
+  --color-dark-gray-300: #b0b0b0;
+  --color-dark-gray-400: #909090;
+  --color-dark-gray-500: #555555; /* 기본 색상 */
+  --color-dark-gray-600: #4d4d4d;
+  --color-dark-gray-700: #404040;
+  --color-dark-gray-800: #333333;
+  --color-dark-gray-900: #262626;
+  --color-dark-gray-950: #1a1a1a;
+  --color-dark-gray-text: #ffffff;
+}

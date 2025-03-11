@@ -4,11 +4,25 @@
     <div>
       <h2 class="text-xl font-bold mb-4">기본 버튼 스타일</h2>
       <div class="flex flex-wrap items-center gap-4">
-        <UButton color="brand">기본 버튼</UButton>
-        <UButton color="brand" variant="outline">아웃라인 버튼</UButton>
-        <UButton color="brand" variant="soft">소프트 버튼</UButton>
-        <UButton color="brand" variant="ghost">고스트 버튼</UButton>
-        <UButton color="brand" variant="link">링크 버튼</UButton>
+        <CustomButton color="brand">기본 버튼</CustomButton>
+        <CustomButton color="brand" variant="outline">아웃라인 버튼</CustomButton>
+        <CustomButton color="brand" variant="soft">소프트 버튼</CustomButton>
+        <CustomButton color="brand" variant="ghost">고스트 버튼</CustomButton>
+        <CustomButton color="brand" variant="link">링크 버튼</CustomButton>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 mt-4">
+        <CustomButton color="gray">기본 버튼</CustomButton>
+        <CustomButton color="gray" variant="outline">아웃라인 버튼</CustomButton>
+        <CustomButton color="gray" variant="soft">소프트 버튼</CustomButton>
+        <CustomButton color="gray" variant="ghost">고스트 버튼</CustomButton>
+        <CustomButton color="gray" variant="link">링크 버튼</CustomButton>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 mt-4">
+        <CustomButton color="dark-gray">다크 그레이 버튼</CustomButton>
+        <CustomButton color="dark-gray" variant="outline">다크 그레이 아웃라인</CustomButton>
+        <CustomButton color="dark-gray" variant="soft">다크 그레이 소프트</CustomButton>
+        <CustomButton color="dark-gray" variant="ghost">다크 그레이 고스트</CustomButton>
+        <CustomButton color="dark-gray" variant="link">다크 그레이 링크</CustomButton>
       </div>
     </div>
 
@@ -16,11 +30,25 @@
     <div>
       <h2 class="text-xl font-bold mb-4">사이즈별 버튼</h2>
       <div class="flex flex-wrap items-center gap-4">
-        <UButton color="brand" size="xs">XS 버튼</UButton>
-        <UButton color="brand" size="sm">SM 버튼</UButton>
-        <UButton color="brand" size="md">MD 버튼</UButton>
-        <UButton color="brand" size="lg">LG 버튼</UButton>
-        <UButton color="brand" size="xl">XL 버튼</UButton>
+        <CustomButton color="brand" size="xs">XS 버튼</CustomButton>
+        <CustomButton color="brand" size="sm">SM 버튼</CustomButton>
+        <CustomButton color="brand" size="md">MD 버튼</CustomButton>
+        <CustomButton color="brand" size="lg">LG 버튼</CustomButton>
+        <CustomButton color="brand" size="xl">XL 버튼</CustomButton>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 mt-4">
+        <CustomButton color="gray" size="xs">XS 버튼</CustomButton>
+        <CustomButton color="gray" size="sm">SM 버튼</CustomButton>
+        <CustomButton color="gray" size="md">MD 버튼</CustomButton>
+        <CustomButton color="gray" size="lg">LG 버튼</CustomButton>
+        <CustomButton color="gray" size="xl">XL 버튼</CustomButton>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 mt-4">
+        <CustomButton color="dark-gray" size="xs">XS 버튼</CustomButton>
+        <CustomButton color="dark-gray" size="sm">SM 버튼</CustomButton>
+        <CustomButton color="dark-gray" size="md">MD 버튼</CustomButton>
+        <CustomButton color="dark-gray" size="lg">LG 버튼</CustomButton>
+        <CustomButton color="dark-gray" size="xl">XL 버튼</CustomButton>
       </div>
     </div>
 
@@ -28,17 +56,28 @@
     <div>
       <h2 class="text-xl font-bold mb-4">아이콘 버튼</h2>
       <div class="flex flex-wrap items-center gap-4">
-        <UButton color="brand" icon="i-heroicons-plus">아이콘 버튼</UButton>
-        <UButton color="brand" icon="i-heroicons-arrow-right" trailing
-          >후행 아이콘</UButton
-        >
-        <UButton color="brand" icon="i-heroicons-check" square />
-        <UButton
-          color="brand"
-          variant="outline"
-          icon="i-heroicons-heart"
-          square
-        />
+        <CustomButton color="brand" icon="icon icon--md icon--settings icon--white">아이콘 버튼</CustomButton>
+        <CustomButton color="brand" icon="icon icon--md icon--settings icon--white" trailing>
+          후행 아이콘
+        </CustomButton>
+        <CustomButton color="brand" icon="icon icon--md icon--settings icon--white" square />
+        <CustomButton color="brand" variant="outline" icon="icon icon--md icon--settings" square />
+      </div>
+      <div class="flex flex-wrap items-center gap-4 mt-4">
+        <CustomButton color="gray" icon="icon icon--md icon--settings" square />
+        <CustomButton color="gray" variant="outline" icon="icon icon--md icon--settings" square />
+        <CustomButton color="gray" icon="icon icon--md icon--settings">그레이 아이콘 버튼</CustomButton>
+        <CustomButton color="gray" icon="icon icon--md icon--settings" trailing>
+          그레이 후행 아이콘
+        </CustomButton>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 mt-4">
+        <CustomButton color="dark-gray" icon="icon icon--md icon--settings icon--white" square />
+        <CustomButton color="dark-gray" variant="outline" icon="icon icon--md icon--settings" square />
+        <CustomButton color="dark-gray" icon="icon icon--md icon--settings icon--white">다크 그레이 아이콘 버튼</CustomButton>
+        <CustomButton color="dark-gray" icon="icon icon--md icon--settings icon--white" trailing>
+          다크 그레이 후행 아이콘
+        </CustomButton>
       </div>
     </div>
 
@@ -46,112 +85,72 @@
     <div>
       <h2 class="text-xl font-bold mb-4">상태별 버튼</h2>
       <div class="flex flex-wrap items-center gap-4">
-        <UButton color="brand" loading>로딩 버튼</UButton>
-        <UButton color="brand" disabled>비활성화 버튼</UButton>
-        <UButton color="brand" block class="max-w-xs">블록 버튼</UButton>
+        <CustomButton color="brand" loading>로딩 버튼</CustomButton>
+        <CustomButton color="brand" disabled>비활성화 버튼</CustomButton>
+        <CustomButton color="brand" block class="max-w-md">블록 버튼</CustomButton>
       </div>
     </div>
 
-    <!-- 세컨더리 컬러 버튼 -->
+    <!-- 체크박스 -->
     <div>
-      <h2 class="text-xl font-bold mb-4">세컨더리 컬러 버튼</h2>
-      <div class="flex flex-wrap items-center gap-4">
-        <UButton color="secondary">기본 버튼</UButton>
-        <UButton color="secondary" variant="outline">아웃라인 버튼</UButton>
-        <UButton color="secondary" variant="soft">소프트 버튼</UButton>
-        <UButton color="secondary" loading>로딩 버튼</UButton>
-        <UButton color="secondary" disabled>비활성화 버튼</UButton>
+      <h2 class="text-xl font-bold mb-4">체크박스</h2>
+        <div class="flex gap-2">
+          <CustomCheckbox v-model="checkboxValue" label="체크박스 라벨" />
+          <CustomCheckbox v-model="checkboxValue2" label="브랜드 체크박스" color="brand" />
+          <CustomCheckbox v-model="checkboxValue3" label="그레이 체크박스" color="gray" />
+          <CustomCheckbox v-model="checkboxValue4" label="다크 그레이 체크박스" color="dark-gray" />
+          <CustomCheckbox v-model="checkboxValue5" label="비활성화 체크박스" disabled />
+          <CustomCheckbox v-model="checkboxValue6" label="도움말이 있는 체크박스" help="이 체크박스에 대한 추가 설명입니다." />
+       </div>
+      <h3 class="text-lg font-semibold mt-4 mb-2">사이즈별 체크박스</h3>
+      <div class="flex gap-4 items-center">
+        <CustomCheckbox v-model="checkboxSizeXS" label="XS 사이즈" size="xs" />
+        <CustomCheckbox v-model="checkboxSizeSM" label="SM 사이즈" size="sm" />
+        <CustomCheckbox v-model="checkboxSizeMD" label="MD 사이즈" size="md" />
+        <CustomCheckbox v-model="checkboxSizeLG" label="LG 사이즈" size="lg" />
+        <CustomCheckbox v-model="checkboxSizeXL" label="XL 사이즈" size="xl" />
       </div>
     </div>
 
-    <!-- 인풋 컴포넌트 -->
-    <div class="mt-8">
-      <h2 class="text-xl font-bold mb-4">인풋 컴포넌트</h2>
-
-      <!-- 기본 인풋 -->
-      <div class="mb-6">
-        <h3 class="text-lg font-semibold mb-3">기본 인풋</h3>
-        <div class="flex flex-col gap-4 max-w-md">
-          <UInput placeholder="기본 인풋" />
-          <UInput placeholder="라벨이 있는 인풋" label="이름" />
-          <UInput
-            placeholder="도움말이 있는 인풋"
-            label="이메일"
-            help="유효한 이메일 주소를 입력하세요"
-          />
-          <UInput
-            placeholder="에러 상태 인풋"
-            label="비밀번호"
-            error="비밀번호는 8자 이상이어야 합니다"
-          />
-        </div>
-      </div>
-
-      <!-- 인풋 사이즈 -->
-      <div class="mb-6">
-        <h3 class="text-lg font-semibold mb-3">인풋 사이즈</h3>
-        <div class="flex flex-col gap-4 max-w-md">
-          <UInput size="xs" placeholder="XS 사이즈" />
-          <UInput size="sm" placeholder="SM 사이즈" />
-          <UInput size="md" placeholder="MD 사이즈" />
-          <UInput size="lg" placeholder="LG 사이즈" />
-          <UInput size="xl" placeholder="XL 사이즈" />
-        </div>
-      </div>
-
-      <!-- 인풋 변형 -->
-      <div class="mb-6">
-        <h3 class="text-lg font-semibold mb-3">인풋 변형</h3>
-        <div class="flex flex-col gap-4 max-w-md">
-          <UInput
-            placeholder="아이콘이 있는 인풋"
-            icon="i-heroicons-magnifying-glass"
-          />
-          <UInput
-            placeholder="후행 아이콘 인풋"
-            trailing-icon="i-heroicons-calendar"
-          />
-          <UInput placeholder="비활성화된 인풋" disabled />
-          <UInput placeholder="읽기 전용 인풋" readonly />
-          <UInput placeholder="로딩 상태 인풋" loading />
-        </div>
-      </div>
-
-      <!-- 인풋 타입 -->
-      <div class="mb-6">
-        <h3 class="text-lg font-semibold mb-3">인풋 타입</h3>
-        <div class="flex flex-col gap-4 max-w-md">
-          <UInput type="text" placeholder="텍스트 인풋" />
-          <UInput type="password" placeholder="비밀번호 인풋" />
-          <UInput type="email" placeholder="이메일 인풋" />
-          <UInput type="number" placeholder="숫자 인풋" />
-          <UInput type="tel" placeholder="전화번호 인풋" />
-        </div>
-      </div>
-
-      <!-- 인풋 그룹 -->
-      <div class="mb-6">
-        <h3 class="text-lg font-semibold mb-3">인풋 그룹</h3>
-        <div class="flex flex-col gap-4 max-w-md">
-          <UInputGroup>
-            <UButton color="gray">https://</UButton>
-            <UInput placeholder="example.com" />
-          </UInputGroup>
-
-          <UInputGroup>
-            <UInput placeholder="검색어를 입력하세요" />
-            <UButton color="brand" icon="i-heroicons-magnifying-glass"
-              >검색</UButton
-            >
-          </UInputGroup>
-
-          <UInputGroup>
-            <UButton color="gray">₩</UButton>
-            <UInput type="number" placeholder="0" />
-            <USelect :options="['KRW', 'USD', 'EUR']" />
-          </UInputGroup>
-        </div>
+    <!-- 라디오박스 -->
+    <div>
+      <h2 class="text-xl font-bold mb-4">라디오박스</h2>
+      <div class="flex gap-4 items-center">
+        <CustomRadio v-model="radioValue" value="option1" name="radioGroup1" label="라디오박스 라벨 1" />
+        <CustomRadio v-model="radioValue" value="option2" name="radioGroup1" label="라디오박스 라벨 2" />
+        <CustomRadio v-model="radioValue" value="option3" name="radioGroup1" label="라디오박스 라벨 3" />
       </div>
     </div>
   </div>
+
+  <!-- 뱃지 -->
+  <div class="badge-examples">
+    <h2 class="text-xl font-bold mb-4">뱃지 컴포넌트</h2>
+
+    <!-- 색상 변형 -->
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold mb-2">색상 변형</h3>
+      <div class="flex flex-wrap gap-2">
+        <CustomBadge color="blue">개인 KPI</CustomBadge>
+        <CustomBadge color="blue" variant="outline">부서 KPI</CustomBadge>
+        <CustomBadge color="green">계량</CustomBadge>
+        <CustomBadge color="green" variant="outline">비계량</CustomBadge>
+        <CustomBadge color="red">합산</CustomBadge>
+        <CustomBadge color="red" variant="outline">평균</CustomBadge>
+        <CustomBadge color="purple">당월실적</CustomBadge>
+        <CustomBadge color="purple" variant="outline">실적/목표*100</CustomBadge>
+      </div>
+    </div>
+
+    <!-- 크기 변형 -->
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold mb-2">크기 변형</h3>
+      <div class="flex flex-wrap items-center gap-2">
+        <CustomBadge color="blue" size="sm">소형</CustomBadge>
+        <CustomBadge color="blue">중형(기본)</CustomBadge>
+        <CustomBadge color="blue" size="lg">대형</CustomBadge>
+      </div>
+    </div>
+  </div>
+
 </template>

@@ -5,6 +5,6 @@ export default defineNuxtConfig({
     '@nuxt/ui'
   ],
 
-  css: ['~/assets/css/main.css'],
-  compatibilityDate: '2025-03-01'
+  css: ['@/assets/scss/main.scss'],
+  compatibilityDate: '2025-03-01',
 })
