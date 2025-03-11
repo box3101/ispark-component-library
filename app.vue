@@ -343,6 +343,87 @@
         />
       </div>
     </div>
+
+    <!-- 멀티 셀렉트 -->
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold mb-2">멀티 셀렉트</h3>
+      <div class="flex flex-col md:flex-row gap-4">
+        <CustomMultiSelect
+          v-model="multiSelectValue"
+          :options="selectOptions"
+          label="기본 멀티 셀렉트"
+          placeholder="여러 옵션을 선택하세요"
+        />
+        <CustomMultiSelect
+          v-model="multiSelectValueWithIcon"
+          :options="selectOptionsWithIcon"
+          label="아이콘이 있는 멀티 셀렉트"
+          placeholder="여러 메뉴를 선택하세요"
+        />
+      </div>
+    </div>
+
+    <!-- 프로필 이미지가 있는 멀티 셀렉트 -->
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold mb-2">프로필 이미지가 있는 멀티 셀렉트</h3>
+      <div class="flex flex-col md:flex-row gap-4">
+        <CustomMultiSelect
+          v-model="multiSelectValueWithImage"
+          :options="selectOptionsWithImage"
+          label="팀원 다중 선택"
+          placeholder="팀원을 선택하세요"
+        />
+      </div>
+    </div>
+
+    <!-- 크기 변형 멀티 셀렉트 -->
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold mb-2">크기 변형 멀티 셀렉트</h3>
+      <div class="flex flex-col md:flex-row flex-wrap gap-4">
+        <CustomMultiSelect
+          v-model="multiSelectSizeXS"
+          :options="selectOptionsWithImage"
+          label="소형 멀티 셀렉트"
+          size="xs"
+          placeholder="팀원을 선택하세요"
+        />
+        <CustomMultiSelect
+          v-model="multiSelectSizeMD"
+          :options="selectOptionsWithImage"
+          label="중형 멀티 셀렉트 (기본)"
+          size="md"
+          placeholder="팀원을 선택하세요"
+        />
+        <CustomMultiSelect
+          v-model="multiSelectSizeXL"
+          :options="selectOptionsWithImage"
+          label="대형 멀티 셀렉트"
+          size="xl"
+          placeholder="팀원을 선택하세요"
+        />
+      </div>
+    </div>
+
+    <!-- 비활성화 상태 멀티 셀렉트 -->
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold mb-2">비활성화 상태 멀티 셀렉트</h3>
+      <div class="flex flex-col md:flex-row gap-4">
+        <CustomMultiSelect
+          v-model="multiSelectDisabled"
+          :options="selectOptionsWithImage"
+          label="비활성화된 멀티 셀렉트"
+          placeholder="팀원을 선택하세요"
+          disabled
+        />
+        <CustomMultiSelect
+          v-model="multiSelectWithHelp"
+          :options="selectOptionsWithImage"
+          label="도움말이 있는 멀티 셀렉트"
+          placeholder="팀원을 선택하세요"
+          help="팀원을 여러 명 선택할 수 있습니다"
+        />
+      </div>
+    </div>
   </div>
 
   <!-- 헤딩 -->
@@ -491,4 +572,14 @@ const selectOptionsWithImage = [
     image: 'https://randomuser.me/api/portraits/women/4.jpg'
   }
 ]
+
+// 멀티 셀렉트 상태
+const multiSelectValue = ref<string[]>([])
+const multiSelectValueWithIcon = ref<string[]>([])
+const multiSelectValueWithImage = ref<string[]>([])
+const multiSelectSizeXS = ref<string[]>([])
+const multiSelectSizeMD = ref<string[]>([])
+const multiSelectSizeXL = ref<string[]>([])
+const multiSelectDisabled = ref<string[]>([])
+const multiSelectWithHelp = ref<string[]>([])
 </script>

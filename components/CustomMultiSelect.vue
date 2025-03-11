@@ -1,74 +1,78 @@
 <template>
-  <div class="custom-select" :class="{ 'is-disabled': disabled }" ref="selectRef">
-    <label v-if="label" class="custom-select__label">{{ label }}</label>
-    <div class="custom-select__wrapper">
-      <button
-        type="button"
-        class="custom-select__button"
+  <div class="custom-multi-select" :class="{ 'is-disabled': disabled }" ref="selectRef">
+    <label v-if="label" class="custom-multi-select__label">{{ label }}</label>
+    <div class="custom-multi-select__wrapper">
+      <div
+        class="custom-multi-select__button"
         :class="[
-          `custom-select__button--${size}`,
-          { 'custom-select__button--error': error }
+          `custom-multi-select__button--${size}`,
+          { 'custom-multi-select__button--error': error }
         ]"
         :disabled="disabled"
         @click="toggleDropdown"
       >
-        <span class="custom-select__button-content">
-          <template v-if="selectedOption">
-            <!-- 프로필 이미지가 있는 경우 -->
-            <img
-              v-if="selectedOption.image"
-              :src="selectedOption.image"
-              :alt="selectedOption.label"
-              class="custom-select__option-image"
-            />
-            <!-- 아이콘이 있는 경우 -->
-            <i
-              v-else-if="selectedOption.icon"
-              :class="['custom-select__option-icon', selectedOption.icon]"
-            ></i>
-            <span class="custom-select__option-label">{{ selectedOption.label }}</span>
-          </template>
-          <span v-else class="custom-select__placeholder">{{ placeholder }}</span>
-        </span>
-        <i class="custom-select__chevron icon icon--md icon--chevron-down"></i>
-      </button>
-
-      <div
-        v-if="isOpen"
-        class="custom-select__dropdown"
-        :class="`custom-select__dropdown--${size}`"
-      >
-        <div class="custom-select__options">
-          <button
-            v-for="option in options"
+        <div class="custom-multi-select__selected-items">
+          <div
+            v-for="option in selectedOptions"
             :key="option.value"
-            type="button"
-            class="custom-select__option"
-            :class="[
-              `custom-select__option--${size}`,
-              { 'custom-select__option--selected': modelValue === option.value }
-            ]"
-            @click="selectOption(option)"
+            class="custom-multi-select__selected-item"
           >
-            <!-- 프로필 이미지가 있는 경우 -->
             <img
               v-if="option.image"
               :src="option.image"
               :alt="option.label"
-              class="custom-select__option-image"
+              class="custom-multi-select__selected-item-image"
             />
-            <!-- 아이콘이 있는 경우 -->
+            <span class="custom-multi-select__selected-item-label">{{ option.label }}</span>
+            <button
+              type="button"
+              class="custom-multi-select__remove-button"
+              @click.stop="removeOption(option)"
+            >
+              <i class="icon icon--sm icon--x"></i>
+            </button>
+          </div>
+        </div>
+        <span v-if="!selectedOptions.length" class="custom-multi-select__placeholder">
+          {{ placeholder }}
+        </span>
+        <i class="custom-multi-select__chevron icon icon--md icon--chevron-down"></i>
+      </div>
+
+      <div
+        v-if="isOpen"
+        class="custom-multi-select__dropdown"
+        :class="`custom-multi-select__dropdown--${size}`"
+      >
+        <div class="custom-multi-select__options">
+          <button
+            v-for="option in availableOptions"
+            :key="option.value"
+            type="button"
+            class="custom-multi-select__option"
+            :class="[
+              `custom-multi-select__option--${size}`,
+              { 'custom-multi-select__option--selected': isSelected(option.value) }
+            ]"
+            @click="toggleOption(option)"
+          >
+            <img
+              v-if="option.image"
+              :src="option.image"
+              :alt="option.label"
+              class="custom-multi-select__option-image"
+            />
+            <span class="custom-multi-select__option-label">{{ option.label }}</span>
             <i
-              v-else-if="option.icon"
-              :class="['custom-select__option-icon', option.icon]"
+              v-if="isSelected(option.value)"
+              class="custom-multi-select__check icon icon--sm icon--check"
             ></i>
-            <span class="custom-select__option-label">{{ option.label }}</span>
           </button>
         </div>
       </div>
     </div>
-    <div v-if="error" class="custom-select__error">{{ error }}</div>
-    <div v-if="help" class="custom-select__help">{{ help }}</div>
+    <div v-if="error" class="custom-multi-select__error">{{ error }}</div>
+    <div v-if="help" class="custom-multi-select__help">{{ help }}</div>
   </div>
 </template>
 
@@ -79,12 +83,11 @@ import { onClickOutside } from '@vueuse/core'
 interface Option {
   value: string
   label: string
-  icon?: string
   image?: string
 }
 
 interface Props {
-  modelValue: string
+  modelValue: string[]
   options: Option[]
   label?: string
   placeholder?: string
@@ -96,18 +99,23 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   size: 'md',
-  placeholder: '선택하세요',
+  placeholder: '팀원을 선택하세요',
   disabled: false
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string): void
+  (e: 'update:modelValue', value: string[]): void
 }>()
 
 const isOpen = ref(false)
 const selectRef = ref<HTMLElement | null>(null)
-const selectedOption = computed(() =>
-  props.options.find(option => option.value === props.modelValue)
+
+const selectedOptions = computed(() =>
+  props.options.filter(option => props.modelValue.includes(option.value))
+)
+
+const availableOptions = computed(() =>
+  props.options.filter(option => !props.modelValue.includes(option.value))
 )
 
 const toggleDropdown = () => {
@@ -116,9 +124,20 @@ const toggleDropdown = () => {
   }
 }
 
-const selectOption = (option: Option) => {
-  emit('update:modelValue', option.value)
-  isOpen.value = false
+const isSelected = (value: string) => props.modelValue.includes(value)
+
+const toggleOption = (option: Option) => {
+  const newValue = isSelected(option.value)
+    ? props.modelValue.filter(v => v !== option.value)
+    : [...props.modelValue, option.value]
+  emit('update:modelValue', newValue)
+}
+
+const removeOption = (option: Option) => {
+  emit(
+    'update:modelValue',
+    props.modelValue.filter(v => v !== option.value)
+  )
 }
 
 // 외부 클릭 시 드롭다운 닫기
@@ -128,7 +147,7 @@ onClickOutside(selectRef, () => {
 </script>
 
 <style lang="scss" scoped>
-.custom-select {
+.custom-multi-select {
   position: relative;
   width: 100%;
 
@@ -149,6 +168,7 @@ onClickOutside(selectRef, () => {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    min-height: 2.5rem;
     padding: 0.5rem 0.75rem;
     border: 1px solid var(--color-gray-300);
     border-radius: 0.375rem;
@@ -180,10 +200,48 @@ onClickOutside(selectRef, () => {
     }
   }
 
-  &__button-content {
+  &__selected-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  &__selected-item {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--color-brand-50);
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    color: var(--color-brand-700);
+  }
+
+  &__selected-item-image {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__remove-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--color-brand-700);
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: var(--color-brand-100);
+    }
   }
 
   &__placeholder {
@@ -193,6 +251,7 @@ onClickOutside(selectRef, () => {
   &__chevron {
     color: var(--color-gray-400);
     transition: transform 0.2s;
+    margin-left: 0.5rem;
   }
 
   &__dropdown {
@@ -204,7 +263,8 @@ onClickOutside(selectRef, () => {
     background-color: white;
     border: 1px solid var(--color-gray-200);
     border-radius: 0.375rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
     z-index: 50;
   }
 
@@ -241,15 +301,14 @@ onClickOutside(selectRef, () => {
     object-fit: cover;
   }
 
-  &__option-icon {
-    font-size: 1.25rem;
-    color: var(--color-gray-500);
-  }
-
   &__option-label {
     flex: 1;
     text-align: left;
     color: var(--color-gray-700);
+  }
+
+  &__check {
+    color: var(--color-brand-500);
   }
 
   &__error {
