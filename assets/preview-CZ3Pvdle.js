@@ -1,0 +1,1 @@
+const o={parameters:{controls:{matchers:{color:/(background|color)$/i,date:/Date$/i}},options:{storySort:{order:["Introduction","*"]}},backgrounds:{default:"light",values:[{name:"light",value:"#ffffff"},{name:"dark",value:"#333333"}]}}};export{o as default};
