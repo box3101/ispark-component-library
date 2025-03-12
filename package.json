@@ -9,7 +9,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "scss": "sass assets/scss/main.scss:assets/css/main.css --watch",
-    "scss:build": "sass assets/scss/main.scss:assets/css/main.css --style compressed"
+    "scss:build": "sass assets/scss/main.scss:assets/css/main.css --style compressed",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@nuxt/ui": "^2.21.0",
@@ -18,6 +20,20 @@
     "vue-router": "latest"
   },
   "devDependencies": {
-    "sass": "^1.85.1"
+    "@chromatic-com/storybook": "3.2.5",
+    "@nuxtjs/storybook": "8.3.3",
+    "@storybook/addon-designs": "^8.2.1",
+    "@storybook/addon-essentials": "8.6.4",
+    "@storybook/blocks": "8.6.4",
+    "@storybook/experimental-addon-test": "8.6.4",
+    "@storybook/test": "8.6.4",
+    "@storybook/vue3": "8.6.4",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitest/browser": "^3.0.8",
+    "@vitest/coverage-v8": "^3.0.8",
+    "playwright": "^1.51.0",
+    "sass": "^1.85.1",
+    "storybook": "8.6.4",
+    "vitest": "^3.0.8"
   }
 }

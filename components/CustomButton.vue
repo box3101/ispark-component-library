@@ -15,13 +15,13 @@
   >
     <span v-if="loading" class="custom-button__loader"></span>
     <span v-if="icon && !trailing" class="custom-button__icon">
-      <i :class="icon"></i>
+      <i :class="['icon', 'icon--md', icon]"></i>
     </span>
     <span v-if="$slots.default" class="custom-button__content">
       <slot />
     </span>
     <span v-if="icon && trailing" class="custom-button__icon">
-      <i :class="icon"></i>
+      <i :class="['icon', 'icon--md', icon]"></i>
     </span>
   </button>
 </template>
