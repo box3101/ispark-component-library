@@ -1,0 +1,41 @@
+@use 'sass:map';
+@use '../abstracts/variables' as *;
+
+// Max-width 유틸리티 클래스
+
+// 8px 단위로 50px부터 300px까지 생성
+@for $i from 50 through 1000 {
+  .max-w-#{$i} {
+    max-width: #{$i}px !important;
+  }
+}
+
+// 자주 사용되는 반응형 크기
+.max-w-xs { max-width: 320px !important; }
+.max-w-sm { max-width: 384px !important; }
+.max-w-md { max-width: 448px !important; }
+.max-w-lg { max-width: 512px !important; }
+.max-w-xl { max-width: 576px !important; }
+.max-w-2xl { max-width: 672px !important; }
+.max-w-3xl { max-width: 768px !important; }
+.max-w-4xl { max-width: 896px !important; }
+.max-w-5xl { max-width: 1024px !important; }
+.max-w-6xl { max-width: 1152px !important; }
+.max-w-7xl { max-width: 1280px !important; }
+.max-w-8xl { max-width: 1440px !important; }
+.max-w-9xl { max-width: 1600px !important; }
+.max-w-full { max-width: 100% !important; }
+
+// 컨텐츠 타입별 추천 크기
+.max-w-input { max-width: 320px !important; }         // 기본 input
+.max-w-input-lg { max-width: 448px !important; }      // 긴 input
+.max-w-textarea { max-width: 512px !important; }      // textarea
+.max-w-select { max-width: 256px !important; }        // select
+.max-w-datepicker { max-width: 200px !important; }    // datepicker
+.max-w-search { max-width: 384px !important; }        // 검색창
+.max-w-modal-sm { max-width: 400px !important; }      // 작은 모달
+.max-w-modal-md { max-width: 600px !important; }      // 중간 모달
+.max-w-modal-lg { max-width: 800px !important; }      // 큰 모달
+.max-w-card { max-width: 384px !important; }          // 카드
+.max-w-form { max-width: 576px !important; }          // 폼
+.max-w-container { max-width: 1200px !important; }    // 컨테이너

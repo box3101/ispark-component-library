@@ -1,6 +1,8 @@
 // Abstracts
-@use 'sass:map';
-@use 'abstracts/variables' as *;
+@use 'abstracts/variables';
+
+// Utilities
+@use 'utilities/max-width';
 
 // Base
 @use 'base/animations';

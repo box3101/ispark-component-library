@@ -180,12 +180,33 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 1em;
-      height: 1em;
-      border: 2px solid currentColor;
+      width: 1.5em;
+      height: 1.5em;
+      border: 2px solid;
       border-radius: 50%;
-      border-right-color: transparent;
+      border-right-color: transparent !important;
       animation: button-spin 0.75s linear infinite;
+    }
+
+    // 색상별 로더 스타일
+    &.custom-button--brand .custom-button__loader {
+      border-color: white;
+    }
+
+    &.custom-button--gray .custom-button__loader {
+      border-color: var(--color-gray-text);
+    }
+
+    &.custom-button--dark-gray .custom-button__loader {
+      border-color: var(--color-dark-gray-text);
+    }
+
+    // variant별 로더 스타일
+    &.custom-button--outline .custom-button__loader,
+    &.custom-button--soft .custom-button__loader,
+    &.custom-button--ghost .custom-button__loader,
+    &.custom-button--link .custom-button__loader {
+      border-color: currentColor;
     }
   }
 

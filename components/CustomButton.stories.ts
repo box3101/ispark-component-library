@@ -50,13 +50,16 @@ const meta = {
     icon: {
       control: 'select',
       options: [
+        '',
         'icon--settings',
+        'icon--settings icon--white',
         'icon--chart-bar',
         'icon--users',
         'icon--calendar',
-        'icon--bell'
+        'icon--bell',
+        'icon--star'
       ],
-      description: '버튼에 표시할 아이콘 클래스를 지정합니다.',
+      description: '버튼에 표시할 아이콘 클래스를 지정합니다. icon--white 클래스를 추가하면 아이콘이 흰색으로 표시됩니다.',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' }
@@ -72,7 +75,7 @@ const meta = {
     },
     loading: {
       control: 'boolean',
-      description: '버튼의 로딩 상태를 지정합니다.',
+      description: '버튼의 로딩 상태를 지정합니다. 로딩 상태일 때는 버튼 내용이 숨겨지고 로딩 스피너가 표시됩니다.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false }
@@ -94,6 +97,14 @@ const meta = {
         defaultValue: { summary: false }
       }
     },
+    class: {
+      control: 'text',
+      description: '버튼에 추가할 사용자 정의 클래스를 지정합니다.',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' }
+      }
+    },
     square: {
       control: 'boolean',
       description: '버튼을 정사각형 형태로 만들지 여부를 지정합니다.',
@@ -101,7 +112,7 @@ const meta = {
         type: { summary: 'boolean' },
         defaultValue: { summary: false }
       }
-    }
+    },
   }
 } satisfies Meta<typeof CustomButton>
 
@@ -116,7 +127,7 @@ export const Default: Story = {
       url: 'https://www.figma.com/design/5KxTT4wOoY5BDAWkhtwpfg/Sgate_Pre-work?node-id=319-260&p=f&m=dev'
     }
   },
-  render: (args) => ({
+  render: (args: any) => ({
     components: { CustomButton },
     setup() {
       return { args }
@@ -129,7 +140,8 @@ export const Default: Story = {
     variant: 'solid',
     size: 'md',
     icon: "icon--users",
-    trailing: true,
-    disabled: true
+    trailing: false,
+    disabled: false,
+    class: ''
   }
 }
