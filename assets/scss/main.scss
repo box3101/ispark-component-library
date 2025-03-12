@@ -1,17 +1,16 @@
 // Abstracts
-@import 'abstracts/variables';
-// @import 'abstracts/_functions';
-// @import 'abstracts/_mixins';
+@use 'sass:map';
+@use 'abstracts/variables' as *;
 
 // Base
-// @import 'base/_reset';
-// @import 'base/_typography';
-// @import 'base/_animations';
+@use 'base/animations';
+@use 'base/reset';
+@use 'base/typography';
 
 // Components
-@import 'components/badges';
-@import 'components/icons';
-@import 'components/buttons';
-@import 'components/forms';
-@import 'components/select';
-@import 'components/heading';
+@use 'components/badges';
+@use 'components/icons';
+@use 'components/buttons';
+@use 'components/forms';
+@use 'components/select';
+@use 'components/heading';

@@ -1,4 +1,3 @@
-
 /* 브랜드 관련 기본 스타일 */
 :root {
   --brand-transition: all 0.3s ease;
@@ -44,3 +43,88 @@
   --color-dark-gray-950: #1a1a1a;
   --color-dark-gray-text: #ffffff;
 }
+
+// Color System
+$brand-colors: (
+  50: var(--color-brand-50),
+  100: var(--color-brand-100),
+  200: var(--color-brand-200),
+  300: var(--color-brand-300),
+  400: var(--color-brand-400),
+  500: var(--color-brand-500),
+  600: var(--color-brand-600),
+  700: var(--color-brand-700),
+  800: var(--color-brand-800),
+  900: var(--color-brand-900),
+  950: var(--color-brand-950),
+  text: var(--color-brand-text)
+);
+
+$gray-colors: (
+  50: var(--color-gray-50),
+  100: var(--color-gray-100),
+  200: var(--color-gray-200),
+  300: var(--color-gray-300),
+  400: var(--color-gray-400),
+  500: var(--color-gray-500),
+  600: var(--color-gray-600),
+  700: var(--color-gray-700),
+  800: var(--color-gray-800),
+  900: var(--color-gray-900),
+  950: var(--color-gray-950),
+  text: var(--color-gray-text)
+);
+
+$dark-gray-colors: (
+  50: var(--color-dark-gray-50),
+  100: var(--color-dark-gray-100),
+  200: var(--color-dark-gray-200),
+  300: var(--color-dark-gray-300),
+  400: var(--color-dark-gray-400),
+  500: var(--color-dark-gray-500),
+  600: var(--color-dark-gray-600),
+  700: var(--color-dark-gray-700),
+  800: var(--color-dark-gray-800),
+  900: var(--color-dark-gray-900),
+  950: var(--color-dark-gray-950),
+  text: var(--color-dark-gray-text)
+);
+
+// Font
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-size-base: 1rem;
+
+// Spacing
+$spacing: (
+  0: 0,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 0.75rem,
+  4: 1rem,
+  5: 1.25rem,
+  6: 1.5rem,
+  8: 2rem,
+  10: 2.5rem,
+  12: 3rem,
+  16: 4rem,
+  20: 5rem,
+  24: 6rem,
+  32: 8rem,
+  40: 10rem,
+  48: 12rem,
+  56: 14rem,
+  64: 16rem
+);
+
+// Border Radius
+$border-radius: (
+  none: 0,
+  sm: 0.125rem,
+  default: 0.25rem,
+  md: 0.375rem,
+  lg: 0.5rem,
+  xl: 0.75rem,
+  2xl: 1rem,
+  3xl: 1.5rem,
+  full: 9999px
+);

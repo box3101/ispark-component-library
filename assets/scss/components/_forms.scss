@@ -1,5 +1,6 @@
+@use 'sass:map';
+@use '../abstracts/variables' as *;
 
-@use "sass:map";
 // 체크박스 스타일
 .custom-checkbox-wrapper {
   margin-bottom: 0.5rem;
