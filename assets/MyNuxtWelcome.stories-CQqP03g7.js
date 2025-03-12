@@ -1,0 +1,3 @@
+import{b as l,f as u,j as p,F as x,k as _,o as d}from"./vue.esm-bundler-B2VokqQK.js";const N=(r,e)=>{const o=r.__vccOpts||r;for(const[n,m]of e)o[n]=m;return o},f={};function W(r,e){const o=_("NuxtWelcome");return d(),l(x,null,[e[0]||(e[0]=u("h1",null,"Welcome Nuxt to Storybook",-1)),p(o)],64)}const g=N(f,[["render",W]]),k={title:"Example/NuxtWelcome",component:g,tags:["autodocs"]},t={args:{}};var s,c,a;t.parameters={...t.parameters,docs:{...(s=t.parameters)==null?void 0:s.docs,source:{originalSource:`{
+  args: {}
+}`,...(a=(c=t.parameters)==null?void 0:c.docs)==null?void 0:a.source}}};const y=["NuxtWelcomeStory"];export{t as NuxtWelcomeStory,y as __namedExportsOrder,k as default};
