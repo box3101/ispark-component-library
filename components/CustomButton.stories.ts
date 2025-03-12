@@ -22,7 +22,7 @@ const meta = {
     },
     color: {
       control: 'select',
-      options: ['brand', 'gray', 'white'],
+      options: ['brand', 'gray', 'dark-gray'],
       description: '버튼의 색상을 지정합니다.',
       table: {
         type: { summary: 'string' },
