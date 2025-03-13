@@ -249,14 +249,66 @@ onClickOutside(selectRef, () => {
     background: none;
     text-align: left;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.2s ease;
 
     &:hover {
-      background-color: var(--color-gray-50);
+      background-color: var(--color-gray-100);
+
+      .custom-select__option-department {
+        color: var(--color-brand-600);
+      }
+
+      .custom-select__option-name {
+        color: var(--color-brand-600);
+      }
+
+      .custom-select__option-position {
+        color: var(--color-brand-500);
+      }
+
+      .custom-select__option-count {
+        color: var(--color-brand-500);
+      }
+
+      .custom-select__option-label {
+        color: var(--color-brand-600);
+      }
+
+      .custom-select__option-icon {
+        color: var(--color-brand-500);
+      }
     }
 
     &--selected {
       background-color: var(--color-brand-50);
+
+      .custom-select__option-department {
+        color: var(--color-brand-700);
+      }
+
+      .custom-select__option-name {
+        color: var(--color-brand-700);
+      }
+
+      .custom-select__option-position {
+        color: var(--color-brand-600);
+      }
+
+      .custom-select__option-count {
+        color: var(--color-brand-600);
+      }
+
+      .custom-select__option-label {
+        color: var(--color-brand-700);
+      }
+
+      .custom-select__option-icon {
+        color: var(--color-brand-600);
+      }
+
+      &:hover {
+        background-color: var(--color-brand-100);
+      }
     }
   }
 
