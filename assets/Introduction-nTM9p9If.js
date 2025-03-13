@@ -1,4 +1,4 @@
-import{X as n,Z as r}from"./index-xAVah7uz.js";import{u as l}from"./index-BNq_RkRO.js";import"./iframe-BWKSwkpE.js";import"../sb-preview/runtime.js";import"./index-Bx-go_-4.js";import"./index-DrFu-skq.js";function s(e){const i={h1:"h1",h2:"h2",h3:"h3",li:"li",p:"p",ul:"ul",...l(),...e.components};return n.jsxs(n.Fragment,{children:[n.jsx(r,{title:"Introduction/Sgate Design System"}),`
+import{ae as n,af as r}from"./index-D6z_Fqtm.js";import{u as l}from"./index-DaaiBBpD.js";import"./iframe-QskELRYl.js";import"../sb-preview/runtime.js";import"./index-Bx-go_-4.js";import"./index-DrFu-skq.js";function s(e){const i={h1:"h1",h2:"h2",h3:"h3",li:"li",p:"p",ul:"ul",...l(),...e.components};return n.jsxs(n.Fragment,{children:[n.jsx(r,{title:"Introduction/Sgate Design System"}),`
 `,n.jsx(i.h1,{id:"sgate-design-system",children:"Sgate Design System"}),`
 `,n.jsx(i.p,{children:"Sgate 디자인시스템은 직관적이고 일관된 사용자 경험을 제공하기 위한 컴포넌트 모음집입니다."}),`
 `,n.jsx(i.h2,{id:"핵심-가치",children:"핵심 가치"}),`
