@@ -178,7 +178,7 @@ export const WithIcon: Story = {
     color: 'brand',
     variant: 'solid',
     size: 'md',
-    icon: "plus"
+    icon: "icon--settings icon--white",
   }
 }
 
@@ -196,7 +196,7 @@ export const WithTrailingIcon: Story = {
     color: 'brand',
     variant: 'solid',
     size: 'md',
-    icon: "arrow-right",
+    icon: "icon--settings icon--white",
     trailing: true
   }
 }
@@ -260,6 +260,6 @@ export const Square: Story = {
     color: 'brand',
     variant: 'solid',
     size: 'md',
-    square: true
+    square: true,
   }
 }
