@@ -86,3 +86,122 @@ export const Default: Story = {
     size: 'md'
   }
 }
+
+// 체크된 상태의 체크박스
+export const Checked: Story = {
+  render: (args: any) => ({
+    components: { CustomCheckbox },
+    setup() {
+      return { args }
+    },
+    template: '<CustomCheckbox v-bind="args" />'
+  }),
+  args: {
+    label: '체크된 체크박스',
+    modelValue: true,
+    color: 'brand',
+    size: 'md'
+  }
+}
+
+// 비활성화 상태의 체크박스
+export const Disabled: Story = {
+  render: (args: any) => ({
+    components: { CustomCheckbox },
+    setup() {
+      return { args }
+    },
+    template: '<CustomCheckbox v-bind="args" />'
+  }),
+  args: {
+    label: '비활성화된 체크박스',
+    modelValue: false,
+    disabled: true,
+    color: 'brand',
+    size: 'md'
+  }
+}
+
+// 비활성화 및 체크된 상태의 체크박스
+export const DisabledChecked: Story = {
+  render: (args: any) => ({
+    components: { CustomCheckbox },
+    setup() {
+      return { args }
+    },
+    template: '<CustomCheckbox v-bind="args" />'
+  }),
+  args: {
+    label: '비활성화 및 체크된 체크박스',
+    modelValue: true,
+    disabled: true,
+    color: 'brand',
+    size: 'md'
+  }
+}
+
+// 도움말이 있는 체크박스
+export const WithHelp: Story = {
+  render: (args: any) => ({
+    components: { CustomCheckbox },
+    setup() {
+      return { args }
+    },
+    template: '<CustomCheckbox v-bind="args" />'
+  }),
+  args: {
+    label: '도움말이 있는 체크박스',
+    modelValue: false,
+    help: '이 체크박스에 대한 추가 설명입니다.',
+    color: 'brand',
+    size: 'md'
+  }
+}
+
+// 오류 메시지가 있는 체크박스
+export const WithError: Story = {
+  render: (args: any) => ({
+    components: { CustomCheckbox },
+    setup() {
+      return { args }
+    },
+    template: '<CustomCheckbox v-bind="args" />'
+  }),
+  args: {
+    label: '오류 메시지가 있는 체크박스',
+    modelValue: false,
+    error: '이 필드는 필수입니다.',
+    color: 'brand',
+    size: 'md'
+  }
+}
+
+// 다양한 색상의 체크박스
+export const Colors: Story = {
+  render: () => ({
+    components: { CustomCheckbox },
+    template: `
+      <div style="display: flex; gap: 16px;">
+        <CustomCheckbox label="Brand" modelValue="true" color="brand" />
+        <CustomCheckbox label="Gray" modelValue="true" color="gray" />
+        <CustomCheckbox label="Dark Gray" modelValue="true" color="dark-gray" />
+      </div>
+    `
+  })
+}
+
+// 다양한 크기의 체크박스
+export const Sizes: Story = {
+  render: () => ({
+    components: { CustomCheckbox },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <CustomCheckbox label="Extra Small" modelValue="true" size="xs" />
+        <CustomCheckbox label="Small" modelValue="true" size="sm" />
+        <CustomCheckbox label="Medium" modelValue="true" size="md" />
+        <CustomCheckbox label="Large" modelValue="true" size="lg" />
+        <CustomCheckbox label="Extra Large" modelValue="true" size="xl" />
+      </div>
+    `
+  })
+}

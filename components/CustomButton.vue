@@ -17,10 +17,13 @@
     <!-- 로딩 상태 표시 요소 -->
     <span v-if="loading" class="custom-button__loader"></span>
 
-    <!-- 선행 아이콘 (trailing이 false일 때) -->
-    <span v-if="icon && !trailing" class="custom-button__icon">
+    <!-- 선행 아이콘 (trailing이 false일 때, 정사각형이 아닐 때만) -->
+    <span v-if="icon && !trailing && !square" class="custom-button__icon">
       <i :class="['icon', 'icon--md', icon]"></i>
     </span>
+
+    <!-- 정사각형 버튼일 때는 아이콘만 표시 -->
+    <i v-if="icon && square" :class="['icon', 'icon--md', icon]"></i>
 
     <!-- 버튼 내용 (슬롯이 있을 경우에만 표시) -->
     <span
@@ -30,8 +33,8 @@
       <slot />
     </span>
 
-    <!-- 후행 아이콘 (trailing이 true일 때) -->
-    <span v-if="icon && trailing" class="custom-button__icon">
+    <!-- 후행 아이콘 (trailing이 true일 때, 정사각형이 아닐 때만) -->
+    <span v-if="icon && trailing && !square" class="custom-button__icon">
       <i :class="['icon', 'icon--md', icon]"></i>
     </span>
   </button>

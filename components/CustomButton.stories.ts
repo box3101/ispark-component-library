@@ -145,3 +145,121 @@ export const Default: Story = {
     class: ''
   }
 }
+
+// 비활성화 상태의 버튼
+export const Disabled: Story = {
+  render: (args: any) => ({
+    components: { CustomButton },
+    setup() {
+      return { args }
+    },
+    template: '<CustomButton v-bind="args">{{ args.slots }}</CustomButton>'
+  }),
+  args: {
+    slots: '비활성화 버튼',
+    color: 'brand',
+    variant: 'solid',
+    size: 'md',
+    disabled: true
+  }
+}
+
+// 아이콘이 있는 버튼
+export const WithIcon: Story = {
+  render: (args: any) => ({
+    components: { CustomButton },
+    setup() {
+      return { args }
+    },
+    template: '<CustomButton v-bind="args">{{ args.slots }}</CustomButton>'
+  }),
+  args: {
+    slots: '아이콘 버튼',
+    color: 'brand',
+    variant: 'solid',
+    size: 'md',
+    icon: "plus"
+  }
+}
+
+// 후행 아이콘이 있는 버튼
+export const WithTrailingIcon: Story = {
+  render: (args: any) => ({
+    components: { CustomButton },
+    setup() {
+      return { args }
+    },
+    template: '<CustomButton v-bind="args">{{ args.slots }}</CustomButton>'
+  }),
+  args: {
+    slots: '후행 아이콘 버튼',
+    color: 'brand',
+    variant: 'solid',
+    size: 'md',
+    icon: "arrow-right",
+    trailing: true
+  }
+}
+
+// 다양한 색상의 버튼
+export const Colors: Story = {
+  render: () => ({
+    components: { CustomButton },
+    template: `
+      <div style="display: flex; gap: 16px;">
+        <CustomButton color="brand">Brand</CustomButton>
+        <CustomButton color="gray">Gray</CustomButton>
+        <CustomButton color="dark-gray">Dark Gray</CustomButton>
+        <CustomButton color="danger">Danger</CustomButton>
+      </div>
+    `
+  })
+}
+
+// 다양한 변형의 버튼
+export const Variants: Story = {
+  render: () => ({
+    components: { CustomButton },
+    template: `
+      <div style="display: flex; gap: 16px;">
+        <CustomButton variant="solid">Solid</CustomButton>
+        <CustomButton variant="outline">Outline</CustomButton>
+        <CustomButton variant="ghost">Ghost</CustomButton>
+        <CustomButton variant="link">Link</CustomButton>
+      </div>
+    `
+  })
+}
+
+// 다양한 크기의 버튼
+export const Sizes: Story = {
+  render: () => ({
+    components: { CustomButton },
+    template: `
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <CustomButton size="xs">XS</CustomButton>
+        <CustomButton size="sm">SM</CustomButton>
+        <CustomButton size="md">MD</CustomButton>
+        <CustomButton size="lg">LG</CustomButton>
+        <CustomButton size="xl">XL</CustomButton>
+      </div>
+    `
+  })
+}
+// 정사각형 버튼
+export const Square: Story = {
+  render: (args: any) => ({
+    components: { CustomButton },
+    setup() {
+      return { args }
+    },
+    template: '<CustomButton v-bind="args">{{ args.content }}</CustomButton>'
+  }),
+  args: {
+    content: '',
+    color: 'brand',
+    variant: 'solid',
+    size: 'md',
+    square: true
+  }
+}
