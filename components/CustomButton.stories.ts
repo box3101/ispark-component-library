@@ -139,7 +139,7 @@ export const Default: Story = {
     color: 'brand',
     variant: 'solid',
     size: 'md',
-    icon: "icon--users",
+    icon: "",
     trailing: false,
     disabled: false,
     class: ''
