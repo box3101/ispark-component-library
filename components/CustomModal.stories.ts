@@ -74,26 +74,30 @@ export const DirectionalModals: Story = {
   render: () => ({
     components: { CustomModal },
     setup() {
-      const modalRefs = {
-        center: ref(),
-        top: ref(),
-        right: ref(),
-        bottom: ref(),
-        left: ref()
-      }
+      const centerModalRef = ref()
+      const topModalRef = ref()
+      const rightModalRef = ref()
+      const bottomModalRef = ref()
+      const leftModalRef = ref()
       
-      return { modalRefs }
+      return { 
+        centerModalRef,
+        topModalRef,
+        rightModalRef,
+        bottomModalRef,
+        leftModalRef
+      }
     },
     template: `
       <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <button @click="modalRefs.center.open()">중앙에서</button>
-        <button @click="modalRefs.top.open()">위에서</button>
-        <button @click="modalRefs.right.open()">오른쪽에서</button>
-        <button @click="modalRefs.bottom.open()">아래에서</button>
-        <button @click="modalRefs.left.open()">왼쪽에서</button>
+        <button @click="centerModalRef.open()">중앙에서</button>
+        <button @click="topModalRef.open()">위에서</button>
+        <button @click="rightModalRef.open()">오른쪽에서</button>
+        <button @click="bottomModalRef.open()">아래에서</button>
+        <button @click="leftModalRef.open()">왼쪽에서</button>
 
         <CustomModal
-          ref="modalRefs.center"
+          ref="centerModalRef"
           title="중앙 모달"
           direction="center"
         >
@@ -101,7 +105,7 @@ export const DirectionalModals: Story = {
         </CustomModal>
 
         <CustomModal
-          ref="modalRefs.top"
+          ref="topModalRef"
           title="상단 모달"
           direction="top"
         >
@@ -109,7 +113,7 @@ export const DirectionalModals: Story = {
         </CustomModal>
 
         <CustomModal
-          ref="modalRefs.right"
+          ref="rightModalRef"
           title="우측 모달"
           direction="right"
         >
@@ -117,7 +121,7 @@ export const DirectionalModals: Story = {
         </CustomModal>
 
         <CustomModal
-          ref="modalRefs.bottom"
+          ref="bottomModalRef"
           title="하단 모달"
           direction="bottom"
         >
@@ -125,7 +129,7 @@ export const DirectionalModals: Story = {
         </CustomModal>
 
         <CustomModal
-          ref="modalRefs.left"
+          ref="leftModalRef"
           title="좌측 모달"
           direction="left"
         >
