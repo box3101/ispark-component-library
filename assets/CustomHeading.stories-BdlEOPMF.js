@@ -1,4 +1,4 @@
-import{d as on,j as sn,k as an,l as ln,n as s,m as cn,o as t,g as v,b as o,e as k,f as rn,F as b,p as gn}from"./vue.esm-bundler-JCTZ8lj_.js";const dn={class:"custom-heading__content"},mn={key:1,class:"custom-heading__trailing-icons"},un=["onClick"],i=on({__name:"CustomHeading",props:{level:{default:1},color:{default:"brand"},align:{default:"left"},spacing:{default:"md"},icon:{default:""},size:{default:"md"},trailingIcons:{type:[Array,Boolean],default:!1},isTrailingIconClickable:{type:Boolean,default:!0},isIconClickable:{type:Boolean,default:!0}},emits:["iconClick","trailingIconClick"],setup(e,{emit:x}){const H=e,I=x,nn=()=>{I("iconClick")},en=n=>{I("trailingIconClick",n)},tn=sn(()=>Array.isArray(H.trailingIcons)?H.trailingIcons:H.trailingIcons===!0?["icon icon--md icon--settings"]:[]);return(n,Cn)=>(t(),an(cn(`h${n.level}`),{class:s(["custom-heading",`custom-heading--${n.color}`,`custom-heading--spacing-${n.spacing}`,`custom-heading--align-${n.align}`,{"custom-heading--with-icon":n.icon}])},{default:ln(()=>[v("div",dn,[n.icon?(t(),o(b,{key:0},[n.isIconClickable?(t(),o("button",{key:0,class:"custom-heading__icon-button",onClick:nn},[v("i",{class:s(["custom-heading__icon",n.icon])},null,2)])):(t(),o("i",{key:1,class:s(["custom-heading__icon",n.icon])},null,2))],64)):k("",!0),rn(n.$slots,"default"),n.trailingIcons?(t(),o("div",mn,[(t(!0),o(b,null,gn(tn.value,(f,y)=>(t(),o(b,{key:y},[n.isTrailingIconClickable?(t(),o("button",{key:0,class:"custom-heading__icon-button",onClick:pn=>en(y)},[v("i",{class:s(["custom-heading__icon","custom-heading__icon--trailing",f])},null,2)],8,un)):(t(),o("i",{key:1,class:s(["custom-heading__icon","custom-heading__icon--trailing",f])},null,2))],64))),128))])):k("",!0)])]),_:3},8,["class"]))}}),vn={title:"Components/CustomHeading",component:i,tags:["autodocs"],argTypes:{level:{control:"select",options:[1,2,3,4,5,6],description:"제목의 HTML 태그 레벨을 지정합니다. (h1-h6)",table:{type:{summary:"string"},defaultValue:{summary:"1"}}},color:{control:"select",options:["brand","gray","dark-gray"],description:"제목의 색상을 지정합니다.",table:{type:{summary:"string"},defaultValue:{summary:"brand"}}},align:{control:"select",options:["left","center","right"],description:"제목의 정렬 방식을 지정합니다.",table:{type:{summary:"string"},defaultValue:{summary:"left"}}},spacing:{control:"select",options:["none","sm","md","lg"],description:"제목의 여백을 지정합니다.",table:{type:{summary:"string"},defaultValue:{summary:"md"}}},icon:{control:"select",options:["","icon icon--md icon--settings"],description:"제목 앞에 표시할 아이콘을 지정합니다.",table:{type:{summary:"string"},defaultValue:{summary:""}}},trailingIcons:{control:{type:"radio"},options:[!0,!1],description:"제목 뒤에 아이콘을 표시할지 여부를 지정합니다. false일 때는 전행 아이콘만 표시하고, true일 때는 전행 아이콘과 함께 후행 아이콘도 표시합니다.",table:{type:{summary:"boolean"},defaultValue:{summary:"false"}}},isIconClickable:{control:"boolean",description:"전행 아이콘을 클릭 가능하게 할지 여부를 지정합니다.",table:{type:{summary:"boolean"},defaultValue:{summary:"true"}}},isTrailingIconClickable:{control:"boolean",description:"후행 아이콘을 클릭 가능하게 할지 여부를 지정합니다.",table:{type:{summary:"boolean"},defaultValue:{summary:"true"}}}}},a={render:e=>({components:{CustomHeading:i},setup(){return{args:e}},template:'<CustomHeading v-bind="args">기본 제목</CustomHeading>'}),args:{level:2,color:"brand",align:"left",spacing:"md",icon:""}},l={render:()=>({components:{CustomHeading:i},template:`
+import{d as on,k as sn,s as an,u as ln,n as s,x as cn,o as t,g as v,b as o,e as k,f as rn,F as b,q as gn}from"./vue.esm-bundler-X6O22w2E.js";const dn={class:"custom-heading__content"},mn={key:1,class:"custom-heading__trailing-icons"},un=["onClick"],i=on({__name:"CustomHeading",props:{level:{default:1},color:{default:"brand"},align:{default:"left"},spacing:{default:"md"},icon:{default:""},size:{default:"md"},trailingIcons:{type:[Array,Boolean],default:!1},isTrailingIconClickable:{type:Boolean,default:!0},isIconClickable:{type:Boolean,default:!0}},emits:["iconClick","trailingIconClick"],setup(e,{emit:Z}){const H=e,I=Z,nn=()=>{I("iconClick")},en=n=>{I("trailingIconClick",n)},tn=sn(()=>Array.isArray(H.trailingIcons)?H.trailingIcons:H.trailingIcons===!0?["icon icon--md icon--settings"]:[]);return(n,Cn)=>(t(),an(cn(`h${n.level}`),{class:s(["custom-heading",`custom-heading--${n.color}`,`custom-heading--spacing-${n.spacing}`,`custom-heading--align-${n.align}`,{"custom-heading--with-icon":n.icon}])},{default:ln(()=>[v("div",dn,[n.icon?(t(),o(b,{key:0},[n.isIconClickable?(t(),o("button",{key:0,class:"custom-heading__icon-button",onClick:nn},[v("i",{class:s(["custom-heading__icon",n.icon])},null,2)])):(t(),o("i",{key:1,class:s(["custom-heading__icon",n.icon])},null,2))],64)):k("",!0),rn(n.$slots,"default"),n.trailingIcons?(t(),o("div",mn,[(t(!0),o(b,null,gn(tn.value,(f,y)=>(t(),o(b,{key:y},[n.isTrailingIconClickable?(t(),o("button",{key:0,class:"custom-heading__icon-button",onClick:pn=>en(y)},[v("i",{class:s(["custom-heading__icon","custom-heading__icon--trailing",f])},null,2)],8,un)):(t(),o("i",{key:1,class:s(["custom-heading__icon","custom-heading__icon--trailing",f])},null,2))],64))),128))])):k("",!0)])]),_:3},8,["class"]))}}),vn={title:"Components/CustomHeading",component:i,tags:["autodocs"],argTypes:{level:{control:"select",options:[1,2,3,4,5,6],description:"제목의 HTML 태그 레벨을 지정합니다. (h1-h6)",table:{type:{summary:"string"},defaultValue:{summary:"1"}}},color:{control:"select",options:["brand","gray","dark-gray"],description:"제목의 색상을 지정합니다.",table:{type:{summary:"string"},defaultValue:{summary:"brand"}}},align:{control:"select",options:["left","center","right"],description:"제목의 정렬 방식을 지정합니다.",table:{type:{summary:"string"},defaultValue:{summary:"left"}}},spacing:{control:"select",options:["none","sm","md","lg"],description:"제목의 여백을 지정합니다.",table:{type:{summary:"string"},defaultValue:{summary:"md"}}},icon:{control:"select",options:["","icon icon--md icon--settings"],description:"제목 앞에 표시할 아이콘을 지정합니다.",table:{type:{summary:"string"},defaultValue:{summary:""}}},trailingIcons:{control:{type:"radio"},options:[!0,!1],description:"제목 뒤에 아이콘을 표시할지 여부를 지정합니다. false일 때는 전행 아이콘만 표시하고, true일 때는 전행 아이콘과 함께 후행 아이콘도 표시합니다.",table:{type:{summary:"boolean"},defaultValue:{summary:"false"}}},isIconClickable:{control:"boolean",description:"전행 아이콘을 클릭 가능하게 할지 여부를 지정합니다.",table:{type:{summary:"boolean"},defaultValue:{summary:"true"}}},isTrailingIconClickable:{control:"boolean",description:"후행 아이콘을 클릭 가능하게 할지 여부를 지정합니다.",table:{type:{summary:"boolean"},defaultValue:{summary:"true"}}}}},a={render:e=>({components:{CustomHeading:i},setup(){return{args:e}},template:'<CustomHeading v-bind="args">기본 제목</CustomHeading>'}),args:{level:2,color:"brand",align:"left",spacing:"md",icon:""}},l={render:()=>({components:{CustomHeading:i},template:`
       <div>
         <CustomHeading :level="1">H1 제목 (4xl)</CustomHeading>
         <CustomHeading :level="2">H2 제목 (3xl)</CustomHeading>
@@ -180,7 +180,7 @@ import{d as on,j as sn,k as an,l as ln,n as s,m as cn,o as t,g as v,b as o,e as 
   args: {
     icon: 'icon icon--md icon--settings'
   }
-}`,...(E=(z=g.parameters)==null?void 0:z.docs)==null?void 0:E.source}}};var F,j,M;d.parameters={...d.parameters,docs:{...(F=d.parameters)==null?void 0:F.docs,source:{originalSource:`{
+}`,...(E=(z=g.parameters)==null?void 0:z.docs)==null?void 0:E.source}}};var F,q,M;d.parameters={...d.parameters,docs:{...(F=d.parameters)==null?void 0:F.docs,source:{originalSource:`{
   render: args => ({
     components: {
       CustomHeading
@@ -205,7 +205,7 @@ import{d as on,j as sn,k as an,l as ln,n as s,m as cn,o as t,g as v,b as o,e as 
     icon: 'icon icon--md icon--settings',
     isIconClickable: false
   }
-}`,...(M=(j=d.parameters)==null?void 0:j.docs)==null?void 0:M.source}}};var O,q,G;m.parameters={...m.parameters,docs:{...(O=m.parameters)==null?void 0:O.docs,source:{originalSource:`{
+}`,...(M=(q=d.parameters)==null?void 0:q.docs)==null?void 0:M.source}}};var O,j,x;m.parameters={...m.parameters,docs:{...(O=m.parameters)==null?void 0:O.docs,source:{originalSource:`{
   render: args => ({
     components: {
       CustomHeading
@@ -232,7 +232,7 @@ import{d as on,j as sn,k as an,l as ln,n as s,m as cn,o as t,g as v,b as o,e as 
   args: {
     trailingIcons: true
   }
-}`,...(G=(q=m.parameters)==null?void 0:q.docs)==null?void 0:G.source}}};var J,K,P;u.parameters={...u.parameters,docs:{...(J=u.parameters)==null?void 0:J.docs,source:{originalSource:`{
+}`,...(x=(j=m.parameters)==null?void 0:j.docs)==null?void 0:x.source}}};var G,J,K;u.parameters={...u.parameters,docs:{...(G=u.parameters)==null?void 0:G.docs,source:{originalSource:`{
   render: args => ({
     components: {
       CustomHeading
@@ -257,7 +257,7 @@ import{d as on,j as sn,k as an,l as ln,n as s,m as cn,o as t,g as v,b as o,e as 
     trailingIcons: true,
     isTrailingIconClickable: false
   }
-}`,...(P=(K=u.parameters)==null?void 0:K.docs)==null?void 0:P.source}}};var Q,R,U;C.parameters={...C.parameters,docs:{...(Q=C.parameters)==null?void 0:Q.docs,source:{originalSource:`{
+}`,...(K=(J=u.parameters)==null?void 0:J.docs)==null?void 0:K.source}}};var P,Q,R;C.parameters={...C.parameters,docs:{...(P=C.parameters)==null?void 0:P.docs,source:{originalSource:`{
   render: args => ({
     components: {
       CustomHeading
@@ -286,7 +286,7 @@ import{d as on,j as sn,k as an,l as ln,n as s,m as cn,o as t,g as v,b as o,e as 
   args: {
     trailingIcons: true
   }
-}`,...(U=(R=C.parameters)==null?void 0:R.docs)==null?void 0:U.source}}};var X,Y,Z;p.parameters={...p.parameters,docs:{...(X=p.parameters)==null?void 0:X.docs,source:{originalSource:`{
+}`,...(R=(Q=C.parameters)==null?void 0:Q.docs)==null?void 0:R.source}}};var U,X,Y;p.parameters={...p.parameters,docs:{...(U=p.parameters)==null?void 0:U.docs,source:{originalSource:`{
   render: () => ({
     components: {
       CustomHeading
@@ -314,4 +314,4 @@ import{d as on,j as sn,k as an,l as ln,n as s,m as cn,o as t,g as v,b as o,e as 
       </div>
     \`
   })
-}`,...(Z=(Y=p.parameters)==null?void 0:Y.docs)==null?void 0:Z.source}}};const bn=["Default","Levels","Alignment","Spacing","WithIcon","WithNonClickableIcon","WithTrailingIcons","WithNonClickableTrailingIcons","WithTrailingIconsAndButton","IconsInButton"];export{c as Alignment,a as Default,p as IconsInButton,l as Levels,r as Spacing,g as WithIcon,d as WithNonClickableIcon,u as WithNonClickableTrailingIcons,m as WithTrailingIcons,C as WithTrailingIconsAndButton,bn as __namedExportsOrder,vn as default};
+}`,...(Y=(X=p.parameters)==null?void 0:X.docs)==null?void 0:Y.source}}};const bn=["Default","Levels","Alignment","Spacing","WithIcon","WithNonClickableIcon","WithTrailingIcons","WithNonClickableTrailingIcons","WithTrailingIconsAndButton","IconsInButton"];export{c as Alignment,a as Default,p as IconsInButton,l as Levels,r as Spacing,g as WithIcon,d as WithNonClickableIcon,u as WithNonClickableTrailingIcons,m as WithTrailingIcons,C as WithTrailingIconsAndButton,bn as __namedExportsOrder,vn as default};
