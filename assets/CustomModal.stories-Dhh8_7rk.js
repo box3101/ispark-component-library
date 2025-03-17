@@ -1,4 +1,4 @@
-import{d as Se,q as t,j as L,x as De,y as Oe,k as Fe,b as g,e as h,s as $e,l as je,T as Ee,u as Le,z as Be,o as b,v as Te,A as We,n as j,g as v,f as E,t as Je}from"./vue.esm-bundler-JCTZ8lj_.js";const Xe={class:"modal__header"},Ae={class:"modal__title"},Ne={class:"modal__header-actions"},He={key:1,class:"modal__footer"},m=Se({__name:"CustomModal",props:{title:{default:""},size:{default:"md"},closable:{type:Boolean,default:!0},closeOnClickOverlay:{type:Boolean,default:!0},scrollable:{type:Boolean,default:!1},direction:{default:"center"},showFooter:{type:Boolean,default:!0}},emits:["close","confirm"],setup(n,{expose:e,emit:l}){const a=n,s=t(!1),d=t(!1),i=t(null),u=t(0),B=t(0),c=t(0),he=t(0),r=t(null),ye=t(null),p=t(!1),y=t(0),T=l,Ce=()=>{p.value?(p.value=!1,y.value>0&&(c.value=y.value)):(p.value=!0,c.value>0&&(y.value=c.value))},Me=()=>{s.value=!0,we(),p.value=!1,Be(()=>{if(r.value)if(a.direction==="right"||a.direction==="left")c.value=512,y.value=512,setTimeout(()=>{r.value&&(r.value.style.transition="",a.direction==="right"?(r.value.style.right="0",r.value.style.left="auto",r.value.style.transform="none"):a.direction==="left"&&(r.value.style.left="0",r.value.style.right="auto",r.value.style.transform="none"))},300);else{const o=r.value.getBoundingClientRect();c.value=o.width,y.value=o.width}})},C=()=>{s.value=!1,J(),T("close")},xe=()=>{T("confirm")},Re=()=>{a.closeOnClickOverlay&&C()},W=o=>{o.key==="Escape"&&a.closable&&C()},we=()=>{document.body.style.overflow="hidden"},J=()=>{document.body.style.overflow=""},X=o=>{var f;d.value=!0,i.value="left",u.value="touches"in o?o.touches[0].clientX:o.clientX,B.value=c.value,he.value=((f=r.value)==null?void 0:f.getBoundingClientRect().left)||0,r.value&&(r.value.style.transition="none")},M=o=>{if(!d.value||a.direction!=="right")return;const _e=("touches"in o?o.touches[0].clientX:o.clientX)-u.value;if(i.value==="left"){const A=Math.min(1200,Math.max(400,B.value-_e));c.value=A,r.value&&(r.value.style.width=`${A}px`)}},x=()=>{d.value=!1,i.value=null,r.value&&(r.value.style.transition="")},ze=L(()=>{switch(a.direction){case"top":return"slide-top";case"right":return"slide-right";case"bottom":return"slide-bottom";case"left":return"slide-left";default:return"v"}}),ke=L(()=>p.value?{width:"100%",height:"100%",top:"0",right:"0",bottom:"0",left:"0",transform:"none",borderRadius:"0"}:a.direction==="right"&&c.value>0?{width:`${c.value}px`,right:"0",left:"auto",transform:"none"}:a.direction==="left"&&c.value>0?{width:`${c.value}px`,left:"0",right:"auto",transform:"none"}:{});return De(()=>{window.addEventListener("keydown",W),document.addEventListener("mousemove",M),document.addEventListener("mouseup",x),document.addEventListener("touchmove",M),document.addEventListener("touchend",x)}),Oe(()=>{window.removeEventListener("keydown",W),document.removeEventListener("mousemove",M),document.removeEventListener("mouseup",x),document.removeEventListener("touchmove",M),document.removeEventListener("touchend",x),J()}),e({open:Me,close:C}),(o,f)=>(b(),Fe(Le,{to:"body"},[s.value?(b(),g("div",{key:0,class:"modal-overlay",onClick:Re})):h("",!0),$e(Ee,{name:ze.value},{default:je(()=>[s.value?(b(),g("div",{key:0,ref_key:"modalRef",ref:r,class:j(["modal",[`modal--${o.size}`,`modal--${o.direction}`,{"modal--no-footer":!o.showFooter},{"modal--fullscreen":p.value}]]),style:We(ke.value),onClick:f[0]||(f[0]=Te(()=>{},["stop"]))},[v("div",Xe,[E(o.$slots,"header",{},()=>[v("h3",Ae,Je(o.title),1)]),v("div",Ne,[o.direction==="right"||o.direction==="left"?(b(),g("button",{key:0,class:"modal__fullscreen",onClick:Ce,type:"button","aria-label":"전체화면"},[v("span",{class:j(["modal__fullscreen-icon",{"modal__fullscreen-icon--exit":p.value}])},null,2)])):h("",!0),o.closable?(b(),g("button",{key:1,class:"modal__close",onClick:C,type:"button","aria-label":"닫기"},f[1]||(f[1]=[v("span",{class:"modal__close-icon"},null,-1)]))):h("",!0)])]),o.direction==="right"&&!p.value?(b(),g("div",{key:0,class:"modal__resize-handle modal__resize-handle--left",onMousedown:X,onTouchstart:X},null,32)):h("",!0),v("div",{ref_key:"contentRef",ref:ye,class:j(["modal__content",{"modal__content--scrollable":o.scrollable,"modal__content--no-footer":!o.showFooter}])},[E(o.$slots,"default")],2),o.showFooter?(b(),g("div",He,[E(o.$slots,"footer",{},()=>[v("button",{class:"modal__button modal__button--secondary",onClick:C}," 취소 "),v("button",{class:"modal__button modal__button--primary",onClick:xe}," 확인 ")])])):h("",!0)],6)):h("",!0)]),_:3},8,["name"])]))}}),Ue={title:"Components/CustomModal",component:m,tags:["autodocs"],argTypes:{title:{control:"text",description:"모달 제목"},size:{control:"select",options:["sm","md","lg","xl","full"],description:"모달 크기"},direction:{control:"select",options:["center","top","right","bottom","left"],description:"모달이 나타나는 방향"},closable:{control:"boolean",description:"닫기 버튼 표시 여부"},closeOnClickOverlay:{control:"boolean",description:"오버레이 클릭시 닫기 여부"},scrollable:{control:"boolean",description:"스크롤 가능 여부"},showFooter:{control:"boolean",description:"푸터 표시 여부"}}},R={render:n=>({components:{CustomModal:m},setup(){const e=t();return{args:n,modalRef:e}},template:`
+import{d as _e,q as t,j as L,x as Se,y as De,k as Oe,b as g,e as h,s as Fe,l as $e,T as je,u as Ee,z as Le,o as b,v as Be,A as Te,n as j,g as v,f as E,t as We}from"./vue.esm-bundler-JCTZ8lj_.js";const Je={class:"modal__header"},Xe={class:"modal__title"},Ae={class:"modal__header-actions"},Ne={key:1,class:"modal__footer"},m=_e({__name:"CustomModal",props:{title:{default:""},size:{default:"md"},closable:{type:Boolean,default:!0},closeOnClickOverlay:{type:Boolean,default:!0},scrollable:{type:Boolean,default:!1},direction:{default:"center"},showFooter:{type:Boolean,default:!0}},emits:["close","confirm"],setup(n,{expose:e,emit:l}){const a=n,s=t(!1),d=t(!1),i=t(null),u=t(0),B=t(0),c=t(0),ge=t(0),r=t(null),he=t(null),p=t(!1),y=t(0),T=l,ye=()=>{p.value?(p.value=!1,y.value>0&&(c.value=y.value)):(p.value=!0,c.value>0&&(y.value=c.value))},Ce=()=>{s.value=!0,Re(),p.value=!1,Le(()=>{if(r.value)if(a.direction==="right"||a.direction==="left")c.value=512,y.value=512,setTimeout(()=>{r.value&&(r.value.style.transition="",a.direction==="right"?(r.value.style.right="0",r.value.style.left="auto",r.value.style.transform="none"):a.direction==="left"&&(r.value.style.left="0",r.value.style.right="auto",r.value.style.transform="none"))},300);else{const o=r.value.getBoundingClientRect();c.value=o.width,y.value=o.width}})},C=()=>{s.value=!1,W(),T("close")},Me=()=>{T("confirm")},xe=()=>{a.closeOnClickOverlay&&C()},Re=()=>{document.body.style.overflow="hidden"},W=()=>{document.body.style.overflow=""},J=o=>{var f;d.value=!0,i.value="left",u.value="touches"in o?o.touches[0].clientX:o.clientX,B.value=c.value,ge.value=((f=r.value)==null?void 0:f.getBoundingClientRect().left)||0,r.value&&(r.value.style.transition="none")},M=o=>{if(!d.value||a.direction!=="right")return;const ke=("touches"in o?o.touches[0].clientX:o.clientX)-u.value;if(i.value==="left"){const X=Math.min(1200,Math.max(400,B.value-ke));c.value=X,r.value&&(r.value.style.width=`${X}px`)}},x=()=>{d.value=!1,i.value=null,r.value&&(r.value.style.transition="")},ze=L(()=>{switch(a.direction){case"top":return"slide-top";case"right":return"slide-right";case"bottom":return"slide-bottom";case"left":return"slide-left";default:return"v"}}),we=L(()=>p.value?{width:"100%",height:"100%",top:"0",right:"0",bottom:"0",left:"0",transform:"none",borderRadius:"0"}:a.direction==="right"&&c.value>0?{width:`${c.value}px`,right:"0",left:"auto",transform:"none"}:a.direction==="left"&&c.value>0?{width:`${c.value}px`,left:"0",right:"auto",transform:"none"}:{});return Se(()=>{document.addEventListener("mousemove",M),document.addEventListener("mouseup",x),document.addEventListener("touchmove",M),document.addEventListener("touchend",x)}),De(()=>{document.removeEventListener("mousemove",M),document.removeEventListener("mouseup",x),document.removeEventListener("touchmove",M),document.removeEventListener("touchend",x),W()}),e({open:Ce,close:C}),(o,f)=>(b(),Oe(Ee,{to:"body"},[s.value?(b(),g("div",{key:0,class:"modal-overlay",onClick:xe})):h("",!0),Fe(je,{name:ze.value},{default:$e(()=>[s.value?(b(),g("div",{key:0,ref_key:"modalRef",ref:r,class:j(["modal",[`modal--${o.size}`,`modal--${o.direction}`,{"modal--no-footer":!o.showFooter},{"modal--fullscreen":p.value}]]),style:Te(we.value),onClick:f[0]||(f[0]=Be(()=>{},["stop"]))},[v("div",Je,[E(o.$slots,"header",{},()=>[v("h3",Xe,We(o.title),1)]),v("div",Ae,[o.direction==="right"||o.direction==="left"?(b(),g("button",{key:0,class:"modal__fullscreen",onClick:ye,type:"button","aria-label":"전체화면"},[v("span",{class:j(["modal__fullscreen-icon",{"modal__fullscreen-icon--exit":p.value}])},null,2)])):h("",!0),o.closable?(b(),g("button",{key:1,class:"modal__close",onClick:C,type:"button","aria-label":"닫기"},f[1]||(f[1]=[v("span",{class:"modal__close-icon"},null,-1)]))):h("",!0)])]),o.direction==="right"&&!p.value?(b(),g("div",{key:0,class:"modal__resize-handle modal__resize-handle--left",onMousedown:J,onTouchstart:J},null,32)):h("",!0),v("div",{ref_key:"contentRef",ref:he,class:j(["modal__content",{"modal__content--scrollable":o.scrollable,"modal__content--no-footer":!o.showFooter}])},[E(o.$slots,"default")],2),o.showFooter?(b(),g("div",Ne,[E(o.$slots,"footer",{},()=>[v("button",{class:"modal__button modal__button--secondary",onClick:C}," 취소 "),v("button",{class:"modal__button modal__button--primary",onClick:Me}," 확인 ")])])):h("",!0)],6)):h("",!0)]),_:3},8,["name"])]))}}),Ie={title:"Components/CustomModal",component:m,tags:["autodocs"],argTypes:{title:{control:"text",description:"모달 제목"},size:{control:"select",options:["sm","md","lg","xl","full"],description:"모달 크기"},direction:{control:"select",options:["center","top","right","bottom","left"],description:"모달이 나타나는 방향"},closable:{control:"boolean",description:"닫기 버튼 표시 여부"},closeOnClickOverlay:{control:"boolean",description:"오버레이 클릭시 닫기 여부"},scrollable:{control:"boolean",description:"스크롤 가능 여부"},showFooter:{control:"boolean",description:"푸터 표시 여부"}}},R={render:n=>({components:{CustomModal:m},setup(){const e=t();return{args:n,modalRef:e}},template:`
       <div>
         <button @click="modalRef.open()">모달 열기</button>
         <CustomModal
@@ -8,7 +8,7 @@ import{d as Se,q as t,j as L,x as De,y as Oe,k as Fe,b as g,e as h,s as $e,l as 
           <p>기본 모달 내용입니다.</p>
         </CustomModal>
       </div>
-    `}),args:{title:"기본 모달",direction:"center"}},w={render:()=>({components:{CustomModal:m},setup(){const n=t(),e=t(),l=t(),a=t(),s=t();return{centerModalRef:n,topModalRef:e,rightModalRef:l,bottomModalRef:a,leftModalRef:s}},template:`
+    `}),args:{title:"기본 모달",direction:"center"}},z={render:()=>({components:{CustomModal:m},setup(){const n=t(),e=t(),l=t(),a=t(),s=t();return{centerModalRef:n,topModalRef:e,rightModalRef:l,bottomModalRef:a,leftModalRef:s}},template:`
       <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
         <button @click="centerModalRef.open()">중앙에서</button>
         <button @click="topModalRef.open()">위에서</button>
@@ -56,7 +56,7 @@ import{d as Se,q as t,j as L,x as De,y as Oe,k as Fe,b as g,e as h,s as $e,l as 
           <p>왼쪽에서 오른쪽으로 나타나는 모달입니다.</p>
         </CustomModal>
       </div>
-    `})},z={render:n=>({components:{CustomModal:m},setup(){const e=t();return{args:n,modalRef:e}},template:`
+    `})},w={render:n=>({components:{CustomModal:m},setup(){const e=t();return{args:n,modalRef:e}},template:`
       <div>
         <button @click="modalRef.open()">모달 열기</button>
         <CustomModal
@@ -218,7 +218,7 @@ const user = {
   age: 30,
   isAdmin: false,
   permissions: ['read', 'write'],
-  
+
   greet() {
     return \`안녕하세요, \${this.name}님!\`;
   }
@@ -241,17 +241,17 @@ class Calculator {
   constructor() {
     this.result = 0;
   }
-  
+
   add(value) {
     this.result += value;
     return this;
   }
-  
+
   subtract(value) {
     this.result -= value;
     return this;
   }
-  
+
   getResult() {
     return this.result;
   }
@@ -285,7 +285,7 @@ console.log(finalResult); // 8
               <div style="width: 3rem; background-color: #f3f4f6; padding: 0.5rem 0; text-align: right; border-right: 1px solid #e5e7eb; font-family: monospace; font-size: 0.875rem; user-select: none; color: #6b7280;">
                 <div v-for="i in lineCount" :key="i" style="padding: 0 0.5rem;">{{ i }}</div>
               </div>
-              
+
               <!-- 코드 에디터 영역 -->
               <textarea
                 v-model="codeContent"
@@ -319,46 +319,46 @@ console.log(finalResult); // 8
           <div style="padding: 1rem;">
             <h4 style="margin-top: 0;">직원 정보 입력</h4>
             <p style="margin-bottom: 1.5rem; color: #6b7280;">아래 양식을 작성하여 새 직원 정보를 등록하세요.</p>
-            
+
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
               <!-- 이름 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">이름 *</label>
-                <input 
-                  v-model="formData.name" 
-                  type="text" 
+                <input
+                  v-model="formData.name"
+                  type="text"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem;"
                   placeholder="홍길동"
                 />
               </div>
-              
+
               <!-- 이메일 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">이메일 *</label>
-                <input 
-                  v-model="formData.email" 
-                  type="email" 
+                <input
+                  v-model="formData.email"
+                  type="email"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem;"
                   placeholder="example@company.com"
                 />
               </div>
-              
+
               <!-- 전화번호 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">전화번호</label>
-                <input 
-                  v-model="formData.phone" 
-                  type="tel" 
+                <input
+                  v-model="formData.phone"
+                  type="tel"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem;"
                   placeholder="010-1234-5678"
                 />
               </div>
-              
+
               <!-- 부서 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">부서 *</label>
-                <select 
-                  v-model="formData.department" 
+                <select
+                  v-model="formData.department"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem; background-color: white;"
                 >
                   <option value="">선택하세요</option>
@@ -369,12 +369,12 @@ console.log(finalResult); // 8
                   <option value="hr">인사</option>
                 </select>
               </div>
-              
+
               <!-- 직급 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">직급 *</label>
-                <select 
-                  v-model="formData.position" 
+                <select
+                  v-model="formData.position"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem; background-color: white;"
                 >
                   <option value="">선택하세요</option>
@@ -386,28 +386,28 @@ console.log(finalResult); // 8
                   <option value="executive">임원</option>
                 </select>
               </div>
-              
+
               <!-- 입사일 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">입사일 *</label>
-                <input 
-                  v-model="formData.startDate" 
-                  type="date" 
+                <input
+                  v-model="formData.startDate"
+                  type="date"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem;"
                 />
               </div>
-              
+
               <!-- 연봉 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">연봉 (만원)</label>
-                <input 
-                  v-model="formData.salary" 
-                  type="number" 
+                <input
+                  v-model="formData.salary"
+                  type="number"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem;"
                   placeholder="3000"
                 />
               </div>
-              
+
               <!-- 상태 -->
               <div style="display: flex; flex-direction: column; grid-column: span 2;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">상태</label>
@@ -427,14 +427,14 @@ console.log(finalResult); // 8
                 </div>
               </div>
             </div>
-            
+
             <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; font-size: 0.75rem; color: #6b7280;">
               * 표시된 항목은 필수 입력 사항입니다.
             </div>
           </div>
         </CustomModal>
       </div>
-    `,args:{title:"직원 정보 등록",size:"lg",direction:"right",closable:!0,closeOnClickOverlay:!0,scrollable:!0,showFooter:!0}})};var N,H,I;R.parameters={...R.parameters,docs:{...(N=R.parameters)==null?void 0:N.docs,source:{originalSource:`{
+    `,args:{title:"직원 정보 등록",size:"lg",direction:"right",closable:!0,closeOnClickOverlay:!0,scrollable:!0,showFooter:!0}})};var A,N,H;R.parameters={...R.parameters,docs:{...(A=R.parameters)==null?void 0:A.docs,source:{originalSource:`{
   render: args => ({
     components: {
       CustomModal
@@ -462,7 +462,7 @@ console.log(finalResult); // 8
     title: '기본 모달',
     direction: 'center'
   }
-}`,...(I=(H=R.parameters)==null?void 0:H.docs)==null?void 0:I.source}}};var U,V,q;w.parameters={...w.parameters,docs:{...(U=w.parameters)==null?void 0:U.docs,source:{originalSource:`{
+}`,...(H=(N=R.parameters)==null?void 0:N.docs)==null?void 0:H.source}}};var I,U,V;z.parameters={...z.parameters,docs:{...(I=z.parameters)==null?void 0:I.docs,source:{originalSource:`{
   render: () => ({
     components: {
       CustomModal
@@ -531,7 +531,7 @@ console.log(finalResult); // 8
       </div>
     \`
   })
-}`,...(q=(V=w.parameters)==null?void 0:V.docs)==null?void 0:q.source}}};var K,G,P;z.parameters={...z.parameters,docs:{...(K=z.parameters)==null?void 0:K.docs,source:{originalSource:`{
+}`,...(V=(U=z.parameters)==null?void 0:U.docs)==null?void 0:V.source}}};var q,G,K;w.parameters={...w.parameters,docs:{...(q=w.parameters)==null?void 0:q.docs,source:{originalSource:`{
   render: args => ({
     components: {
       CustomModal
@@ -575,7 +575,7 @@ console.log(finalResult); // 8
     size: 'md',
     closable: true
   }
-}`,...(P=(G=z.parameters)==null?void 0:G.docs)==null?void 0:P.source}}};var Q,Y,Z;k.parameters={...k.parameters,docs:{...(Q=k.parameters)==null?void 0:Q.docs,source:{originalSource:`{
+}`,...(K=(G=w.parameters)==null?void 0:G.docs)==null?void 0:K.source}}};var P,Q,Y;k.parameters={...k.parameters,docs:{...(P=k.parameters)==null?void 0:P.docs,source:{originalSource:`{
   render: args => ({
     components: {
       CustomModal
@@ -609,7 +609,7 @@ console.log(finalResult); // 8
     size: 'md',
     scrollable: true
   }
-}`,...(Z=(Y=k.parameters)==null?void 0:Y.docs)==null?void 0:Z.source}}};var ee,te,oe;_.parameters={..._.parameters,docs:{...(ee=_.parameters)==null?void 0:ee.docs,source:{originalSource:`{
+}`,...(Y=(Q=k.parameters)==null?void 0:Q.docs)==null?void 0:Y.source}}};var Z,ee,te;_.parameters={..._.parameters,docs:{...(Z=_.parameters)==null?void 0:Z.docs,source:{originalSource:`{
   render: args => ({
     components: {
       CustomModal
@@ -650,7 +650,7 @@ console.log(finalResult); // 8
     title: '크기 변형',
     closable: true
   }
-}`,...(oe=(te=_.parameters)==null?void 0:te.docs)==null?void 0:oe.source}}};var ne,le,ae;S.parameters={...S.parameters,docs:{...(ne=S.parameters)==null?void 0:ne.docs,source:{originalSource:`{
+}`,...(te=(ee=_.parameters)==null?void 0:ee.docs)==null?void 0:te.source}}};var oe,ne,le;S.parameters={...S.parameters,docs:{...(oe=S.parameters)==null?void 0:oe.docs,source:{originalSource:`{
   render: args => ({
     components: {
       CustomModal
@@ -679,7 +679,7 @@ console.log(finalResult); // 8
     title: '푸터 없는 모달',
     showFooter: false
   }
-}`,...(ae=(le=S.parameters)==null?void 0:le.docs)==null?void 0:ae.source}}};var re,se,ie;D.parameters={...D.parameters,docs:{...(re=D.parameters)==null?void 0:re.docs,source:{originalSource:`{
+}`,...(le=(ne=S.parameters)==null?void 0:ne.docs)==null?void 0:le.source}}};var ae,re,se;D.parameters={...D.parameters,docs:{...(ae=D.parameters)==null?void 0:ae.docs,source:{originalSource:`{
   render: args => ({
     components: {
       CustomModal
@@ -714,7 +714,7 @@ console.log(finalResult); // 8
     showFooter: false,
     scrollable: true
   }
-}`,...(ie=(se=D.parameters)==null?void 0:se.docs)==null?void 0:ie.source}}};var de,ce,me;O.parameters={...O.parameters,docs:{...(de=O.parameters)==null?void 0:de.docs,source:{originalSource:`{
+}`,...(se=(re=D.parameters)==null?void 0:re.docs)==null?void 0:se.source}}};var ie,de,ce;O.parameters={...O.parameters,docs:{...(ie=O.parameters)==null?void 0:ie.docs,source:{originalSource:`{
   render: args => ({
     components: {
       CustomModal
@@ -815,7 +815,7 @@ function hello() {
       showFooter: true
     }
   })
-}`,...(me=(ce=O.parameters)==null?void 0:ce.docs)==null?void 0:me.source}}};var ue,pe,fe;F.parameters={...F.parameters,docs:{...(ue=F.parameters)==null?void 0:ue.docs,source:{originalSource:`{
+}`,...(ce=(de=O.parameters)==null?void 0:de.docs)==null?void 0:ce.source}}};var me,ue,pe;F.parameters={...F.parameters,docs:{...(me=F.parameters)==null?void 0:me.docs,source:{originalSource:`{
   render: args => ({
     components: {
       CustomModal
@@ -838,7 +838,7 @@ const user = {
   age: 30,
   isAdmin: false,
   permissions: ['read', 'write'],
-  
+
   greet() {
     return \\\`안녕하세요, \\\${this.name}님!\\\`;
   }
@@ -861,17 +861,17 @@ class Calculator {
   constructor() {
     this.result = 0;
   }
-  
+
   add(value) {
     this.result += value;
     return this;
   }
-  
+
   subtract(value) {
     this.result -= value;
     return this;
   }
-  
+
   getResult() {
     return this.result;
   }
@@ -928,7 +928,7 @@ console.log(finalResult); // 8
               <div style="width: 3rem; background-color: #f3f4f6; padding: 0.5rem 0; text-align: right; border-right: 1px solid #e5e7eb; font-family: monospace; font-size: 0.875rem; user-select: none; color: #6b7280;">
                 <div v-for="i in lineCount" :key="i" style="padding: 0 0.5rem;">{{ i }}</div>
               </div>
-              
+
               <!-- 코드 에디터 영역 -->
               <textarea
                 v-model="codeContent"
@@ -960,7 +960,7 @@ console.log(finalResult); // 8
       showFooter: true
     }
   })
-}`,...(fe=(pe=F.parameters)==null?void 0:pe.docs)==null?void 0:fe.source}}};var ve,be,ge;$.parameters={...$.parameters,docs:{...(ve=$.parameters)==null?void 0:ve.docs,source:{originalSource:`{
+}`,...(pe=(ue=F.parameters)==null?void 0:ue.docs)==null?void 0:pe.source}}};var fe,ve,be;$.parameters={...$.parameters,docs:{...(fe=$.parameters)==null?void 0:fe.docs,source:{originalSource:`{
   render: args => ({
     components: {
       CustomModal
@@ -1009,46 +1009,46 @@ console.log(finalResult); // 8
           <div style="padding: 1rem;">
             <h4 style="margin-top: 0;">직원 정보 입력</h4>
             <p style="margin-bottom: 1.5rem; color: #6b7280;">아래 양식을 작성하여 새 직원 정보를 등록하세요.</p>
-            
+
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
               <!-- 이름 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">이름 *</label>
-                <input 
-                  v-model="formData.name" 
-                  type="text" 
+                <input
+                  v-model="formData.name"
+                  type="text"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem;"
                   placeholder="홍길동"
                 />
               </div>
-              
+
               <!-- 이메일 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">이메일 *</label>
-                <input 
-                  v-model="formData.email" 
-                  type="email" 
+                <input
+                  v-model="formData.email"
+                  type="email"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem;"
                   placeholder="example@company.com"
                 />
               </div>
-              
+
               <!-- 전화번호 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">전화번호</label>
-                <input 
-                  v-model="formData.phone" 
-                  type="tel" 
+                <input
+                  v-model="formData.phone"
+                  type="tel"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem;"
                   placeholder="010-1234-5678"
                 />
               </div>
-              
+
               <!-- 부서 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">부서 *</label>
-                <select 
-                  v-model="formData.department" 
+                <select
+                  v-model="formData.department"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem; background-color: white;"
                 >
                   <option value="">선택하세요</option>
@@ -1059,12 +1059,12 @@ console.log(finalResult); // 8
                   <option value="hr">인사</option>
                 </select>
               </div>
-              
+
               <!-- 직급 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">직급 *</label>
-                <select 
-                  v-model="formData.position" 
+                <select
+                  v-model="formData.position"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem; background-color: white;"
                 >
                   <option value="">선택하세요</option>
@@ -1076,28 +1076,28 @@ console.log(finalResult); // 8
                   <option value="executive">임원</option>
                 </select>
               </div>
-              
+
               <!-- 입사일 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">입사일 *</label>
-                <input 
-                  v-model="formData.startDate" 
-                  type="date" 
+                <input
+                  v-model="formData.startDate"
+                  type="date"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem;"
                 />
               </div>
-              
+
               <!-- 연봉 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">연봉 (만원)</label>
-                <input 
-                  v-model="formData.salary" 
-                  type="number" 
+                <input
+                  v-model="formData.salary"
+                  type="number"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem;"
                   placeholder="3000"
                 />
               </div>
-              
+
               <!-- 상태 -->
               <div style="display: flex; flex-direction: column; grid-column: span 2;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">상태</label>
@@ -1117,7 +1117,7 @@ console.log(finalResult); // 8
                 </div>
               </div>
             </div>
-            
+
             <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; font-size: 0.75rem; color: #6b7280;">
               * 표시된 항목은 필수 입력 사항입니다.
             </div>
@@ -1135,4 +1135,4 @@ console.log(finalResult); // 8
       showFooter: true
     }
   })
-}`,...(ge=(be=$.parameters)==null?void 0:be.docs)==null?void 0:ge.source}}};const Ve=["Default","DirectionalModals","CustomHeaderFooter","ScrollableContent","Sizes","WithoutFooter","SideModalWithoutFooter","SideModalWithTextarea","CodeEditorSideModal","FormSideModal"];export{F as CodeEditorSideModal,z as CustomHeaderFooter,R as Default,w as DirectionalModals,$ as FormSideModal,k as ScrollableContent,O as SideModalWithTextarea,D as SideModalWithoutFooter,_ as Sizes,S as WithoutFooter,Ve as __namedExportsOrder,Ue as default};
+}`,...(be=(ve=$.parameters)==null?void 0:ve.docs)==null?void 0:be.source}}};const Ue=["Default","DirectionalModals","CustomHeaderFooter","ScrollableContent","Sizes","WithoutFooter","SideModalWithoutFooter","SideModalWithTextarea","CodeEditorSideModal","FormSideModal"];export{F as CodeEditorSideModal,w as CustomHeaderFooter,R as Default,z as DirectionalModals,$ as FormSideModal,k as ScrollableContent,O as SideModalWithTextarea,D as SideModalWithoutFooter,_ as Sizes,S as WithoutFooter,Ue as __namedExportsOrder,Ie as default};
