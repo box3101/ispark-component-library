@@ -1,9 +1,9 @@
 <template>
   <Teleport to="body">
-    <!-- 오버레이 (트랜지션 없음) -->
+    <!-- 오버레이 (트랜지션 없음) - 모달 배경을 어둡게 처리하는 영역 -->
     <div v-if="isModalOpen" class="modal-overlay" @click="handleOverlayClick"></div>
 
-    <!-- 모달 컨텐츠 (트랜지션 적용) -->
+    <!-- 모달 컨텐츠 (트랜지션 적용) - 애니메이션 효과로 모달이 나타나고 사라짐 -->
     <Transition :name="getTransitionName">
       <div
         v-if="isModalOpen"
@@ -18,12 +18,13 @@
         :style="modalStyle"
         @click.stop
       >
-        <!-- 헤더 영역 -->
+        <!-- 헤더 영역 - 제목과 액션 버튼들이 위치하는 상단 영역 -->
         <div class="modal__header">
           <slot name="header">
-            <h3 class="modal__title">{{ title }}</h3>
+            <h3 class="modal__title">{{ title }}</h3>  <!-- 기본 제목 표시 -->
           </slot>
           <div class="modal__header-actions">
+            <!-- 전체화면 토글 버튼 - 사이드 모달(좌/우)에서만 표시 -->
             <button
               v-if="direction === 'right' || direction === 'left'"
               class="modal__fullscreen"
@@ -33,6 +34,7 @@
             >
               <span class="modal__fullscreen-icon" :class="{ 'modal__fullscreen-icon--exit': isFullscreen }"></span>
             </button>
+            <!-- 닫기 버튼 - closable 속성이 true일 때만 표시 -->
             <button
               v-if="closable"
               class="modal__close"
@@ -45,7 +47,7 @@
           </div>
         </div>
 
-        <!-- 리사이즈 핸들 -->
+        <!-- 리사이즈 핸들 - 오른쪽 사이드 모달의 너비를 조절할 수 있는 드래그 영역 -->
         <div
           v-if="direction === 'right' && !isFullscreen"
           class="modal__resize-handle modal__resize-handle--left"
@@ -53,7 +55,7 @@
           @touchstart="startResizeLeft"
         ></div>
 
-        <!-- 컨텐츠 영역 -->
+        <!-- 컨텐츠 영역 - 실제 모달 내용이 표시되는 메인 영역 -->
         <div
           ref="contentRef"
           class="modal__content"
@@ -62,12 +64,13 @@
             'modal__content--no-footer': !showFooter
           }"
         >
-          <slot></slot>
+          <slot></slot>  <!-- 기본 슬롯으로 모달 내용 삽입 -->
         </div>
 
-        <!-- 푸터 영역 -->
+        <!-- 푸터 영역 - 하단 버튼 영역, showFooter 속성이 true일 때만 표시 -->
         <div v-if="showFooter" class="modal__footer">
           <slot name="footer">
+            <!-- 기본 푸터 버튼: 취소 및 확인 -->
             <button
               class="modal__button modal__button--secondary"
               @click="handleClose"
@@ -235,16 +238,6 @@ const handleOverlayClick = () => {
 }
 
 /**
- * 키보드 이벤트 핸들러
- * - ESC 키 누를 경우 모달 닫기
- */
-const handleKeyDown = (event: KeyboardEvent) => {
-  if (event.key === 'Escape' && props.closable) {
-    handleClose()
-  }
-}
-
-/**
  * 모달 열림 시 배경 스크롤 방지
  */
 const preventScroll = () => {
@@ -269,23 +262,6 @@ const startResizeLeft = (e: MouseEvent | TouchEvent) => {
   startX.value = 'touches' in e ? e.touches[0].clientX : e.clientX;
   startWidth.value = currentWidth.value;
   startLeft.value = modalRef.value?.getBoundingClientRect().left || 0;
-
-  // 리사이징 시작 시 트랜지션 제거
-  if (modalRef.value) {
-    modalRef.value.style.transition = 'none';
-  }
-}
-
-/**
- * 오른쪽 리사이즈 시작 핸들러
- * - 리사이징 상태 및 방향 설정
- * - 시작 위치 및 너비 저장
- */
-const startResizeRight = (e: MouseEvent | TouchEvent) => {
-  isResizing.value = true;
-  resizeDirection.value = 'right';
-  startX.value = 'touches' in e ? e.touches[0].clientX : e.clientX;
-  startWidth.value = currentWidth.value;
 
   // 리사이징 시작 시 트랜지션 제거
   if (modalRef.value) {
@@ -387,7 +363,6 @@ const modalStyle = computed(() => {
  * 컴포넌트 마운트 시 이벤트 리스너 등록
  */
 onMounted(() => {
-  window.addEventListener('keydown', handleKeyDown)
   document.addEventListener('mousemove', handleResize)
   document.addEventListener('mouseup', stopResize)
   document.addEventListener('touchmove', handleResize)
@@ -398,7 +373,6 @@ onMounted(() => {
  * 컴포넌트 언마운트 시 이벤트 리스너 제거 및 정리
  */
 onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeyDown)
   document.removeEventListener('mousemove', handleResize)
   document.removeEventListener('mouseup', stopResize)
   document.removeEventListener('touchmove', handleResize)
@@ -423,9 +397,15 @@ defineExpose({
   --color-gray-500: #6b7280;
   --color-gray-700: #374151;
   --color-gray-900: #111827;
-  
+
   --color-brand-500: #3b82f6;
   --color-brand-600: #2563eb;
+
+  // 모달 크기 변수 정의
+  --modal-size-sm: 24rem;
+  --modal-size-md: 32rem;
+  --modal-size-lg: 40rem;
+  --modal-size-xl: 48rem;
 }
 
 .modal-overlay {
@@ -439,11 +419,6 @@ defineExpose({
 }
 
 // 모달 트랜지션 효과
-.v-enter-active,
-.v-leave-active {
-  transition: all 0.3s ease;
-}
-
 .v-enter-from {
   opacity: 0;
   transform: scale(0.95);
@@ -477,22 +452,22 @@ defineExpose({
 
 .slide-top-enter-active,
 .slide-top-leave-active {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease!important;
 }
 
 .slide-top-enter-from,
 .slide-top-leave-to {
-  transform: translateY(-100%);
+  transform: translate(-50%, -100%)!important;
 }
 
 .slide-bottom-enter-active,
 .slide-bottom-leave-active {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease!important;
 }
 
 .slide-bottom-enter-from,
 .slide-bottom-leave-to {
-  transform: translateY(100%);
+  transform: translate(-50%, 100%)!important;
 }
 
 .modal {
@@ -506,7 +481,7 @@ defineExpose({
 
   // 크기 변형
   &--sm {
-    width: 24rem;
+    width: var(--modal-size-sm);
     max-width: 90vw;
     max-height: 90vh;
     top: 50%;
@@ -516,7 +491,7 @@ defineExpose({
   }
 
   &--md {
-    width: 32rem;
+    width: var(--modal-size-md);
     max-width: 90vw;
     max-height: 90vh;
     top: 50%;
@@ -526,7 +501,7 @@ defineExpose({
   }
 
   &--lg {
-    width: 40rem;
+    width: var(--modal-size-lg);
     max-width: 90vw;
     max-height: 90vh;
     top: 50%;
@@ -536,7 +511,7 @@ defineExpose({
   }
 
   &--xl {
-    width: 48rem;
+    width: var(--modal-size-xl);
     max-width: 90vw;
     max-height: 90vh;
     top: 50%;
@@ -556,13 +531,10 @@ defineExpose({
 
   // 방향별 위치 설정
   &--top {
-    width: 32rem;
-    max-width: 90vw;
-    max-height: 90vh;
     top: 2rem;
     left: 50%;
-    transform: translateX(-50%);
     transition: all 0.3s ease;
+    transform: translate(-50%, 0%);
   }
 
   &--right {
@@ -572,7 +544,6 @@ defineExpose({
     bottom: 0;
     left: auto;
     height: 100vh;
-    width: 32rem;
     min-width: 400px;
     max-width: 1200px;
     margin: 0;
@@ -583,13 +554,9 @@ defineExpose({
   }
 
   &--bottom {
-    width: 32rem;
-    max-width: 90vw;
-    max-height: 90vh;
     bottom: 2rem;
     left: 50%;
-    transform: translateX(-50%);
-    transition: all 0.3s ease;
+    transform: translate(-50%, 0%);
   }
 
   &--left {
@@ -599,7 +566,7 @@ defineExpose({
     top: 0;
     bottom: 0;
     height: 100vh;
-    width: 32rem;
+    width: var(--modal-size-md);
     min-width: 400px;
     max-width: 1200px;
     margin: 0;
@@ -610,7 +577,6 @@ defineExpose({
   }
 
   &--center {
-    width: 32rem;
     max-width: 90vw;
     max-height: 90vh;
     top: 50%;
@@ -737,13 +703,13 @@ defineExpose({
       border-bottom-left-radius: 0.5rem;
       border-bottom-right-radius: 0.5rem;
     }
-    
+
     // textarea가 포함된 컨테이너 스타일
     .textarea-container {
       flex: 1;
       display: flex;
       flex-direction: column;
-      
+
       textarea {
         flex: 1;
         min-height: 200px;
@@ -754,7 +720,7 @@ defineExpose({
         font-family: inherit;
         font-size: 0.875rem;
         line-height: 1.5;
-        
+
         &:focus {
           outline: none;
           border-color: #3b82f6;
@@ -820,19 +786,19 @@ defineExpose({
     right: 0 !important;
     bottom: 0 !important;
     transform: none !important;
-    
+
     .modal__content {
       flex: 1;
       display: flex;
       flex-direction: column;
-      
+
       // textarea가 포함된 컨테이너가 확장되도록 설정
       .textarea-container {
         flex: 1;
         display: flex;
         flex-direction: column;
         height: 100%;
-        
+
         textarea {
           flex: 1;
           min-height: 300px;

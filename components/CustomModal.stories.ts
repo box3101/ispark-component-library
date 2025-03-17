@@ -439,7 +439,7 @@ const user = {
   age: 30,
   isAdmin: false,
   permissions: ['read', 'write'],
-  
+
   greet() {
     return \`안녕하세요, \${this.name}님!\`;
   }
@@ -462,17 +462,17 @@ class Calculator {
   constructor() {
     this.result = 0;
   }
-  
+
   add(value) {
     this.result += value;
     return this;
   }
-  
+
   subtract(value) {
     this.result -= value;
     return this;
   }
-  
+
   getResult() {
     return this.result;
   }
@@ -534,7 +534,7 @@ console.log(finalResult); // 8
               <div style="width: 3rem; background-color: #f3f4f6; padding: 0.5rem 0; text-align: right; border-right: 1px solid #e5e7eb; font-family: monospace; font-size: 0.875rem; user-select: none; color: #6b7280;">
                 <div v-for="i in lineCount" :key="i" style="padding: 0 0.5rem;">{{ i }}</div>
               </div>
-              
+
               <!-- 코드 에디터 영역 -->
               <textarea
                 v-model="codeContent"
@@ -619,46 +619,46 @@ export const FormSideModal: Story = {
           <div style="padding: 1rem;">
             <h4 style="margin-top: 0;">직원 정보 입력</h4>
             <p style="margin-bottom: 1.5rem; color: #6b7280;">아래 양식을 작성하여 새 직원 정보를 등록하세요.</p>
-            
+
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
               <!-- 이름 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">이름 *</label>
-                <input 
-                  v-model="formData.name" 
-                  type="text" 
+                <input
+                  v-model="formData.name"
+                  type="text"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem;"
                   placeholder="홍길동"
                 />
               </div>
-              
+
               <!-- 이메일 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">이메일 *</label>
-                <input 
-                  v-model="formData.email" 
-                  type="email" 
+                <input
+                  v-model="formData.email"
+                  type="email"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem;"
                   placeholder="example@company.com"
                 />
               </div>
-              
+
               <!-- 전화번호 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">전화번호</label>
-                <input 
-                  v-model="formData.phone" 
-                  type="tel" 
+                <input
+                  v-model="formData.phone"
+                  type="tel"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem;"
                   placeholder="010-1234-5678"
                 />
               </div>
-              
+
               <!-- 부서 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">부서 *</label>
-                <select 
-                  v-model="formData.department" 
+                <select
+                  v-model="formData.department"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem; background-color: white;"
                 >
                   <option value="">선택하세요</option>
@@ -669,12 +669,12 @@ export const FormSideModal: Story = {
                   <option value="hr">인사</option>
                 </select>
               </div>
-              
+
               <!-- 직급 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">직급 *</label>
-                <select 
-                  v-model="formData.position" 
+                <select
+                  v-model="formData.position"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem; background-color: white;"
                 >
                   <option value="">선택하세요</option>
@@ -686,28 +686,28 @@ export const FormSideModal: Story = {
                   <option value="executive">임원</option>
                 </select>
               </div>
-              
+
               <!-- 입사일 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">입사일 *</label>
-                <input 
-                  v-model="formData.startDate" 
-                  type="date" 
+                <input
+                  v-model="formData.startDate"
+                  type="date"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem;"
                 />
               </div>
-              
+
               <!-- 연봉 -->
               <div style="display: flex; flex-direction: column;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">연봉 (만원)</label>
-                <input 
-                  v-model="formData.salary" 
-                  type="number" 
+                <input
+                  v-model="formData.salary"
+                  type="number"
                   style="padding: 0.5rem; border: 1px solid #e5e7eb; border-radius: 0.375rem; font-size: 0.875rem;"
                   placeholder="3000"
                 />
               </div>
-              
+
               <!-- 상태 -->
               <div style="display: flex; flex-direction: column; grid-column: span 2;">
                 <label style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">상태</label>
@@ -727,7 +727,7 @@ export const FormSideModal: Story = {
                 </div>
               </div>
             </div>
-            
+
             <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; font-size: 0.75rem; color: #6b7280;">
               * 표시된 항목은 필수 입력 사항입니다.
             </div>
